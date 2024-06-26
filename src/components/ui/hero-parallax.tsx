@@ -129,12 +129,14 @@ export const ProductCard = ({
     <motion.div
       style={{
         x: translate,
+        boxShadow:'20px 20px 60px 0px rgba(255,255,255,0.3)'
       }}
       whileHover={{
         y: -20,
       }}
       key={product.title}
-      className="group/product h-96 w-[30rem] relative flex-shrink-0 shadow-lg shadow-[20px_20px_60px_0px_rgba(255,255,255,0.3)] rounded-xl"
+      className="group/product h-96 w-[30rem] relative flex-shrink-0 shadow-lg  rounded-xl"
+      
     >
       <Link
         href={product.link}
