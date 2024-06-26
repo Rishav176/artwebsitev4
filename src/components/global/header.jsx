@@ -32,18 +32,13 @@ export default function Header() {
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-4 lg:divide-y lg:divide-gray-200 lg:px-8">
             <div className="relative flex h-16 justify-between">
-              <div className="relative z-10 flex px-2 lg:px-0">
-                <div className="flex flex-shrink-0 items-center justify-center">
-                  {/* <img
-                    className="h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                    alt="Your Company"
-                  /> */}
-                  <h1 className="text-2xl font-semibold text-gray-700">Ritu Handmade Arts</h1>
+              <div className="relative z-10 flex px-2 items-center">
+                <div className="flex flex-shrink-0 items-center">
+                  <h1 className="text-xl font-semibold text-gray-700">Ritu Handmade Arts</h1>
                 </div>
               </div>
-              <div className="relative z-0 flex flex-1 items-center justify-center px-2 sm:absolute sm:inset-0">
-                <div className="w-full sm:max-w-xs">
+              <div className="relative z-0 flex flex-1 items-center justify-center px-2 md:absolute sm:inset-0 sm:flex sm:flex-col sm:justify-center sm:space-y-2">
+                <div className="sm:max-w-xs">
                   <label htmlFor="search" className="sr-only">
                     Search
                   </label>
@@ -54,7 +49,7 @@ export default function Header() {
                     <input
                       id="search"
                       name="search"
-                      className="block w-full rounded-md border-0 bg-white py-1.5 pl-10 pr-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      className="block w-full rounded-md border-0 bg-white py-1.5 pl-10 pr-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 md:text-sm md:leading-6"
                       placeholder="Search"
                       type="search"
                     />
@@ -62,7 +57,6 @@ export default function Header() {
                 </div>
               </div>
               <div className="relative z-10 flex items-center lg:hidden">
-                {/* Mobile menu button */}
                 <DisclosureButton className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                   <span className="absolute -inset-0.5" />
                   <span className="sr-only">Open menu</span>
