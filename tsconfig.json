@@ -21,6 +21,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/components/global/header.jsx", "src/components/ui/hero-parallax.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/components/global/header.jsx", "src/components/ui/hero-parallax.tsx", "src/components/ui/FlipWordsHeading.jsx"],
   "exclude": ["node_modules"]
 }

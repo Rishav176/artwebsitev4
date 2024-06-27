@@ -2,11 +2,13 @@ import Image from "next/image";
 import {  HeroParallax } from "../components/ui/hero-parallax";
 import  Header  from "../components/global/header";
 import { products } from "@/lib/constant";
+import Featured from "@/components/global/featured";
 export default function Home() {
   return (
     <main >
       <Header />
       <HeroParallax products={products}/>
+      <Featured />
     </main>
   );
 }
