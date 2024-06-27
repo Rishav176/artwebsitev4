@@ -58,7 +58,7 @@ export const HeroParallax = ({
   return (
     <div
       ref={ref}
-      className="h-[300vh] py-40 overflow-hidden  antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+      className="h-[250vh] md:h-[200vh] xl:h-[300vh] 2xl:h-[200vh]    py-40 overflow-hidden  antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d] "
     >
       <Header />
       <motion.div
@@ -104,11 +104,11 @@ export const HeroParallax = ({
 
 export const Header = () => {
   return (
-    <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full  left-0 top-0">
-      <h1 className="text-2xl md:text-7xl font-bold dark:text-white">
-        <FlipWordsDemo words={["RituHandmadeArts"]} classes={'text-4xl font-semibold'}/>
+    <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full  left-0 top-0 md:pl-6">
+      <h1 className="text-2xl md:text-7xl font-bold dark:text-white " >
+        <FlipWordsDemo words={["RituHandmadeArts"]} classes={'text-7xl font-semibold '}/>
       </h1>
-      <p className="max-w-2xl text-base mt-2 md:text-xl dark:text-neutral-200">
+      <p className="max-w-2xl text-base mt-2 md:text-2xl dark:text-neutral-200 md:pt-6 ">
       Discover unique, handcrafted paintings made with passion and skill. Explore our collection and find the perfect piece to add beauty and individuality to your space.
       </p>
     </div>

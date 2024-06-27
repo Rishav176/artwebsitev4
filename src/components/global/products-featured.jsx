@@ -1,3 +1,4 @@
+import Button from '../ui/button'
 const products = [
     {
       id: 1,
@@ -157,15 +158,7 @@ const products = [
   
                     <h4 className="sr-only">Available colors</h4>
                     <ul role="list" className="mt-auto flex items-center justify-center space-x-3 pt-6">
-                      {product.availableColors.map((color) => (
-                        <li
-                          key={color.name}
-                          className="h-4 w-4 rounded-full border border-black border-opacity-10"
-                          style={{ backgroundColor: color.colorBg }}
-                        >
-                          <span className="sr-only">{color.name}</span>
-                        </li>
-                      ))}
+                      <Button>Purchase</Button>
                     </ul>
                   </li>
                 ))}
