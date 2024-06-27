@@ -9,6 +9,7 @@ import {
 } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { FlipWordsDemo } from "./FlipWordsDemo";
 
 export const HeroParallax = ({
   products,
@@ -105,9 +106,9 @@ export const Header = () => {
   return (
     <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full  left-0 top-0">
       <h1 className="text-2xl md:text-7xl font-bold dark:text-white">
-        Ritu Handmade Arts <br /> 
+        <FlipWordsDemo />
       </h1>
-      <p className="max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200">
+      <p className="max-w-2xl text-base mt-2 md:text-xl dark:text-neutral-200">
       Discover unique, handcrafted paintings made with passion and skill. Explore our collection and find the perfect piece to add beauty and individuality to your space.
       </p>
     </div>
