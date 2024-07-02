@@ -8,11 +8,7 @@ const products = [
       href: '#',
       imageSrc: '/art5.jpg',
       imageAlt: 'Black machined steel pen with hexagonal grip and small white logo at top.',
-      availableColors: [
-        { name: 'Black', colorBg: '#111827' },
-        { name: 'Brass', colorBg: '#FDE68A' },
-        { name: 'Chrome', colorBg: '#E5E7EB' },
-      ],
+     
     },
     {
         id: 2,
@@ -22,11 +18,7 @@ const products = [
         href: '#',
         imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-02-product-01.jpg',
         imageAlt: 'Black machined steel pen with hexagonal grip and small white logo at top.',
-        availableColors: [
-          { name: 'Black', colorBg: '#111827' },
-          { name: 'Brass', colorBg: '#FDE68A' },
-          { name: 'Chrome', colorBg: '#E5E7EB' },
-        ],
+       
       },
       {
         id: 3,
@@ -36,11 +28,7 @@ const products = [
         href: '#',
         imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-02-product-01.jpg',
         imageAlt: 'Black machined steel pen with hexagonal grip and small white logo at top.',
-        availableColors: [
-          { name: 'Black', colorBg: '#111827' },
-          { name: 'Brass', colorBg: '#FDE68A' },
-          { name: 'Chrome', colorBg: '#E5E7EB' },
-        ],
+       
       },
       {
         id: 4,
@@ -50,11 +38,7 @@ const products = [
         href: '#',
         imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-02-product-01.jpg',
         imageAlt: 'Black machined steel pen with hexagonal grip and small white logo at top.',
-        availableColors: [
-          { name: 'Black', colorBg: '#111827' },
-          { name: 'Brass', colorBg: '#FDE68A' },
-          { name: 'Chrome', colorBg: '#E5E7EB' },
-        ],
+        
       },
       {
         id: 5,
@@ -64,11 +48,7 @@ const products = [
         href: '#',
         imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-02-product-01.jpg',
         imageAlt: 'Black machined steel pen with hexagonal grip and small white logo at top.',
-        availableColors: [
-          { name: 'Black', colorBg: '#111827' },
-          { name: 'Brass', colorBg: '#FDE68A' },
-          { name: 'Chrome', colorBg: '#E5E7EB' },
-        ],
+      
       },
       {
         id: 6,
@@ -78,11 +58,7 @@ const products = [
         href: '#',
         imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-02-product-01.jpg',
         imageAlt: 'Black machined steel pen with hexagonal grip and small white logo at top.',
-        availableColors: [
-          { name: 'Black', colorBg: '#111827' },
-          { name: 'Brass', colorBg: '#FDE68A' },
-          { name: 'Chrome', colorBg: '#E5E7EB' },
-        ],
+      
       },
       {
         id: 7,
@@ -92,11 +68,7 @@ const products = [
         href: '#',
         imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-02-product-01.jpg',
         imageAlt: 'Black machined steel pen with hexagonal grip and small white logo at top.',
-        availableColors: [
-          { name: 'Black', colorBg: '#111827' },
-          { name: 'Brass', colorBg: '#FDE68A' },
-          { name: 'Chrome', colorBg: '#E5E7EB' },
-        ],
+      
       },
       {
         id: 8,
@@ -106,12 +78,48 @@ const products = [
         href: '#',
         imageSrc: 'art6.jpg',
         imageAlt: 'Black machined steel pen with hexagonal grip and small white logo at top.',
-        availableColors: [
-          { name: 'Black', colorBg: '#111827' },
-          { name: 'Brass', colorBg: '#FDE68A' },
-          { name: 'Chrome', colorBg: '#E5E7EB' },
-        ],
+     
       },
+      {
+        id: 1,
+        name: 'Machined Pen',
+        color: 'Black',
+        price: '$35',
+        href: '#',
+        imageSrc: '/art5.jpg',
+        imageAlt: 'Black machined steel pen with hexagonal grip and small white logo at top.',
+       
+      },
+      {
+          id: 2,
+          name: 'Machined Pen',
+          color: 'Black',
+          price: '$35',
+          href: '#',
+          imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-02-product-01.jpg',
+          imageAlt: 'Black machined steel pen with hexagonal grip and small white logo at top.',
+         
+        },
+        {
+          id: 3,
+          name: 'Machined Pen',
+          color: 'Black',
+          price: '$35',
+          href: '#',
+          imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-02-product-01.jpg',
+          imageAlt: 'Black machined steel pen with hexagonal grip and small white logo at top.',
+         
+        },
+        {
+          id: 4,
+          name: 'Machined Pen',
+          color: 'Black',
+          price: '$35',
+          href: '#',
+          imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-02-product-01.jpg',
+          imageAlt: 'Black machined steel pen with hexagonal grip and small white logo at top.',
+          
+        },
 
     // More products...
   ]

@@ -80,7 +80,7 @@ const collections = [
               >
                 <div>
                   <div aria-hidden="true" className="absolute inset-0 overflow-hidden rounded-lg">
-                    <div className="absolute inset-0 overflow-hidden group-hover:opacity-75">
+                    <div className="absolute inset-0 overflow-hidden group-hover:opacity-75 ">
                       <img
                         src={collection.imageSrc}
                         alt={collection.imageAlt}
@@ -91,10 +91,10 @@ const collections = [
                   </div>
                   <div className="absolute inset-0 flex items-end rounded-lg p-6">
                     <div>
-                      <p aria-hidden="true" className="text-sm text-white">
+                      <p aria-hidden="true" className="text-sm text-slate-300">
                         Shop the collection
                       </p>
-                      <h3 className="mt-1 font-semibold text-white">
+                      <h3 className="mt-1 font-semibold text-[#c19434]">
                         <a href={collection.href}>
                           <span className="absolute inset-0" />
                           {collection.name}
