@@ -88,15 +88,15 @@ const navigation = {
     ],
   }
   
-  export default function Example() {
+  export default function Footer() {
     return (
-      <footer className="bg-white" aria-labelledby="footer-heading">
+      <footer className="bg-white " aria-labelledby="footer-heading">
         <h2 id="footer-heading" className="sr-only">
           Footer
         </h2>
-        <div className="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
-          <div className="xl:grid xl:grid-cols-3 xl:gap-8">
-            <div className="space-y-8">
+        <div className="mx-auto  px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32 ">
+          <div className="  xl:grid xl:grid-cols-3 xl:gap-8 ">
+            <div className="space-y-8 ">
               <img
                 className="h-7"
                 src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
@@ -105,7 +105,7 @@ const navigation = {
               <p className="text-sm leading-6 text-gray-600">
                 Making the world a better place through constructing elegant hierarchies.
               </p>
-              <div className="flex space-x-6">
+              <div className="flex space-x-6 ">
                 {navigation.social.map((item) => (
                   <a key={item.name} href={item.href} className="text-gray-400 hover:text-gray-500">
                     <span className="sr-only">{item.name}</span>
