@@ -1,3 +1,5 @@
+import Image from "next/image"
+
 const collections = [
     {
       name: "Women's",
@@ -21,13 +23,13 @@ const collections = [
   
   export default function PromoSection() {
     return (
-      <div className="relative bg-white">
+      <div className="relative bg-white pb-5">
         {/* Background image and overlap */}
         <div aria-hidden="true" className="absolute inset-0 hidden sm:flex sm:flex-col">
           <div className="relative w-full flex-1 bg-gray-800">
             <div className="absolute inset-0 overflow-hidden">
               <img
-                src="https://tailwindui.com/img/ecommerce-images/home-page-04-hero-full-width.jpg"
+                src="/roomShivPic.jpg"
                 alt=""
                 className="h-full w-full object-cover object-center"
               />
@@ -42,9 +44,10 @@ const collections = [
           <div aria-hidden="true" className="absolute inset-0 flex flex-col sm:hidden">
             <div className="relative w-full flex-1 bg-gray-800">
               <div className="absolute inset-0 overflow-hidden">
-                <img
-                  src="https://tailwindui.com/img/ecommerce-images/home-page-04-hero-full-width.jpg"
+                <Image
+                  src="/roomShivPic.jpg"
                   alt=""
+                  fill
                   className="h-full w-full object-cover object-center"
                 />
               </div>
@@ -53,7 +56,7 @@ const collections = [
             <div className="h-48 w-full bg-white" />
           </div>
           <div className="relative py-32">
-            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl">Mid-Season Sale</h1>
+            <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl md:text-4xl">Hand-pick from our range of Different Collections</h1>
             <div className="mt-4 sm:mt-6">
               <a
                 href="#"
