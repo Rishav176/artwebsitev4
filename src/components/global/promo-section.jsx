@@ -4,19 +4,19 @@ const collections = [
     {
       name: "Women's",
       href: '#',
-      imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-04-collection-01.jpg',
+      imageSrc: '/promo1.jpg',
       imageAlt: 'Woman wearing an off-white cotton t-shirt.',
     },
     {
-      name: "Men's",
+      name: "Abstract Art",
       href: '#',
-      imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-04-collection-02.jpg',
+      imageSrc: '/promo2.webp',
       imageAlt: 'Man wearing a charcoal gray cotton t-shirt.',
     },
     {
-      name: 'Desk Accessories',
+      name: 'Sectional Art',
       href: '#',
-      imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-04-collection-03.jpg',
+      imageSrc: '/promo3.webp',
       imageAlt: 'Person sitting at a wooden desk with paper note organizer, pencil and tablet.',
     },
   ]
@@ -29,7 +29,7 @@ const collections = [
           <div className="relative w-full flex-1 bg-gray-800">
             <div className="absolute inset-0 overflow-hidden">
               <img
-                src="/roomShivPic.jpg"
+                src="/room_test.png"
                 alt=""
                 className="h-full w-full object-cover object-center"
               />
@@ -45,7 +45,7 @@ const collections = [
             <div className="relative w-full flex-1 bg-gray-800">
               <div className="absolute inset-0 overflow-hidden">
                 <Image
-                  src="/roomShivPic.jpg"
+                  src="/room_test.png"
                   alt=""
                   fill
                   className="h-full w-full object-cover object-center"
@@ -60,7 +60,7 @@ const collections = [
             <div className="mt-4 sm:mt-6">
               <a
                 href="#"
-                className="inline-block rounded-md border border-transparent bg-indigo-600 px-8 py-3 font-medium text-white hover:bg-indigo-700"
+                className="inline-block rounded-md border border-transparent bg-[#c19434] px-8 py-3 font-medium text-white hover:opacity-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 "
               >
                 Shop Collection
               </a>
@@ -84,7 +84,7 @@ const collections = [
                       <img
                         src={collection.imageSrc}
                         alt={collection.imageAlt}
-                        className="h-full w-full object-cover object-center"
+                        className="h-full w-full object-cover object-center "
                       />
                     </div>
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-50" />
