@@ -1,17 +1,17 @@
-"use client"
+'use client'
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { MagnifyingGlassIcon } from '@heroicons/react/20/solid'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const user = {
-  name: 'Tom Cook',
+  name: 'Rishav Kumar',
   email: 'tom@example.com',
   imageUrl:
     'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
 }
 const navigation = [
-  { name: 'Dashboard', href: '#', current: true },
-  { name: 'Team', href: '#', current: false },
+  { name: 'Home', href: '/', current: true },
+  { name: 'Shop Now', href: '/categories', current: false },
   { name: 'Projects', href: '#', current: false },
   { name: 'Calendar', href: '#', current: false },
 ]
@@ -30,11 +30,11 @@ export default function Header() {
     <Disclosure as="header" className="bg-white shadow">
       {({ open }) => (
         <>
-          <div className="mx-auto max-w-7xl px-2 sm:px-4 lg:divide-y lg:divide-gray-200 lg:px-8">
-            <div className="relative flex h-16 justify-between">
-              <div className="relative z-10 flex px-2 items-center">
+          <div className="mx-auto  px-2 sm:px-4 lg:divide-y lg:divide-gray-200 lg:px-8">
+            <div className="relative flex h-16 justify-between w-full">
+              <div className="relative z-10 flex px-2 items-center w-full">
                 <div className="flex flex-shrink-0 items-center">
-                  <h1 className="text-xl font-semibold text-gray-700">Ritu Handmade Arts</h1>
+                  <h1 className="text-xl font-semibold text-gray-700">RituHandmadeArts</h1>
                 </div>
               </div>
               <div className="relative z-0 flex flex-1 items-center justify-center px-2 md:absolute sm:inset-0 sm:flex sm:flex-col sm:justify-center sm:space-y-2">
