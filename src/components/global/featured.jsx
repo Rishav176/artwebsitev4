@@ -22,7 +22,7 @@ const features = [
             <div>
               <div className="border-b border-gray-200 pb-10">
                 <h2 className="font-medium text-black">RituHandmadeArts</h2>
-                <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Trusted Excellence</p>
+                <p className="mt-2 text-3xl font-bold tracking-tight text-[#c19434] sm:text-4xl">Trusted Excellence</p>
               </div>
   
               <dl className="mt-10 space-y-10">

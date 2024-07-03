@@ -5,7 +5,8 @@ export default function Home() {
     const params = useParams();
     return (
         <div>
-          {params.slug}
+          
         </div>
     )
-}
+  }
+  // {params.slug}

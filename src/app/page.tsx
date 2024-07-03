@@ -10,9 +10,11 @@ export default function Home() {
     <main >
       
       <HeroParallax products={products}/>
+      
       <Featured />
-      <Products_Featured />
+      
       <PromoSection />
+      <Products_Featured />
       <FAQ />
       
       

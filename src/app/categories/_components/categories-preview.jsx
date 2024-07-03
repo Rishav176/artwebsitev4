@@ -231,7 +231,7 @@ export default function CategoriesPreviews() {
         <main>
           <div className="mx-auto  px-4 sm:px-6 lg:max-w-7xl lg:px-8">
             <div className="py-24 text-center">
-              <h1 className="text-4xl font-bold tracking-tight text-gray-900">New Collections</h1>
+              <h1 className="text-4xl font-bold tracking-tight text-[#c19434]">New Collections</h1>
               <p className="mx-auto mt-4 max-w-3xl text-base text-gray-500">
               Explore Thoughtfully Designed Handmade Paintings for Your Workspace and Home.
               </p>
@@ -353,7 +353,7 @@ export default function CategoriesPreviews() {
                       />
                     </div>
                     <div className="mt-4 flex items-center justify-between text-base font-medium text-gray-900">
-                      <h3>{product.name}</h3>
+                      <h3 className='text-[#c19434]'>{product.name}</h3>
                       <p>{product.price}</p>
                     </div>
                     <p className="mt-1 text-sm italic text-gray-500">{product.description}</p>
@@ -374,7 +374,7 @@ export default function CategoriesPreviews() {
               <div aria-hidden="true" className="relative h-32 w-full lg:hidden" />
               <div className="absolute inset-x-0 bottom-0 rounded-bl-lg rounded-br-lg bg-black bg-opacity-75 p-6 backdrop-blur backdrop-filter sm:flex sm:items-center sm:justify-between lg:inset-x-auto lg:inset-y-0 lg:w-96 lg:flex-col lg:items-start lg:rounded-br-none lg:rounded-tl-lg">
                 <div>
-                  <h2 id="featured-heading" className="text-xl font-bold text-white">
+                  <h2 id="featured-heading" className="text-xl font-bold text-[#c19434]">
                     Diverse Collections
                   </h2>
                   <p className="mt-1 text-sm text-gray-300">
@@ -401,7 +401,7 @@ export default function CategoriesPreviews() {
                       />
                     </div>
                     <div className="mt-4 flex items-center justify-between text-base font-medium text-gray-900">
-                      <h3>{product.name}</h3>
+                      <h3 className='text-[#c19434]'>{product.name}</h3>
                       <p>{product.price}</p>
                     </div>
                     <p className="mt-1 text-sm italic text-gray-500">{product.description}</p>
