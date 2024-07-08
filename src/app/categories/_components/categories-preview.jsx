@@ -76,54 +76,42 @@ const products1 = [
   {
     id: 1,
     name: 'Focus Paper Refill',
-    href: '#',
-    price: '$13',
-    description: '3 sizes available',
+    href: '/categories/1',
     imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-01-image-card-01.jpg',
     imageAlt: 'Person using a pen to cross a task off a productivity paper card.',
   },
   {
     id: 2,
     name: 'Focus Card Holder',
-    href: '#',
-    price: '$64',
-    description: 'Walnut',
+    href: '/categories/2',
     imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-01-image-card-02.jpg',
     imageAlt: 'Paper card sitting upright in walnut card holder on desk.',
   },
   {
     id: 3,
     name: 'Focus Carry Pouch',
-    href: '#',
-    price: '$32',
-    description: 'Heather Gray',
+    href: '/categories/3',
     imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-01-image-card-03.jpg',
     imageAlt: 'Textured gray felt pouch for paper cards with snap button flap and elastic pen holder loop.',
   },
   {
     id: 1,
     name: 'Focus Paper Refill',
-    href: '#',
-    price: '$13',
-    description: '3 sizes available',
+    href: '/categories/4',
     imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-01-image-card-01.jpg',
     imageAlt: 'Person using a pen to cross a task off a productivity paper card.',
   },
   {
     id: 2,
     name: 'Focus Card Holder',
-    href: '#',
-    price: '$64',
-    description: 'Walnut',
+    href: '/categories/5',
     imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-01-image-card-02.jpg',
     imageAlt: 'Paper card sitting upright in walnut card holder on desk.',
   },
   {
     id: 3,
     name: 'Focus Carry Pouch',
-    href: '#',
-    price: '$32',
-    description: 'Heather Gray',
+    href: '/categories/6',
     imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-01-image-card-03.jpg',
     imageAlt: 'Textured gray felt pouch for paper cards with snap button flap and elastic pen holder loop.',
   },
@@ -133,18 +121,14 @@ const products2 = [
   {
     id: 7,
     name: 'Electric Kettle',
-    href: '#',
-    price: '$149',
-    description: 'Black',
+    href: '/categories/7',
     imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-01-image-card-07.jpg',
     imageAlt: 'Close up of long kettle spout pouring boiling water into pour-over coffee mug with frothy coffee.',
   },
   {
     id: 8,
     name: 'Leather Workspace Pad',
-    href: '#',
-    price: '$165',
-    description: 'Black',
+    href: '/categories/8',
     imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-01-image-card-08.jpg',
     imageAlt:
       'Extra large black leather workspace pad on desk with computer, wooden shelf, desk organizer, and computer peripherals.',
@@ -152,9 +136,7 @@ const products2 = [
   {
     id: 9,
     name: 'Leather Long Wallet',
-    href: '#',
-    price: '$118',
-    description: 'Natural',
+    href: '/categories/9',
     imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-01-image-card-09.jpg',
     imageAlt:
       'Leather long wallet held open with hand-stitched card dividers, full-length bill pocket, and simple tab closure.',
@@ -162,18 +144,14 @@ const products2 = [
   {
     id: 7,
     name: 'Electric Kettle',
-    href: '#',
-    price: '$149',
-    description: 'Black',
+    href: '/categories/10',
     imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-01-image-card-07.jpg',
     imageAlt: 'Close up of long kettle spout pouring boiling water into pour-over coffee mug with frothy coffee.',
   },
   {
     id: 8,
     name: 'Leather Workspace Pad',
-    href: '#',
-    price: '$165',
-    description: 'Black',
+    href: '/categories/11',
     imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-01-image-card-08.jpg',
     imageAlt:
       'Extra large black leather workspace pad on desk with computer, wooden shelf, desk organizer, and computer peripherals.',
@@ -181,41 +159,13 @@ const products2 = [
   {
     id: 9,
     name: 'Leather Long Wallet',
-    href: '#',
-    price: '$118',
-    description: 'Natural',
+    href: '/categories/12',
     imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-01-image-card-09.jpg',
     imageAlt:
       'Leather long wallet held open with hand-stitched card dividers, full-length bill pocket, and simple tab closure.',
   },
   // More products...
 ]
-const footerNavigation = {
-  products: [
-    { name: 'Bags', href: '#' },
-    { name: 'Tees', href: '#' },
-    { name: 'Objects', href: '#' },
-    { name: 'Home Goods', href: '#' },
-    { name: 'Accessories', href: '#' },
-  ],
-  company: [
-    { name: 'Who we are', href: '#' },
-    { name: 'Sustainability', href: '#' },
-    { name: 'Press', href: '#' },
-    { name: 'Careers', href: '#' },
-    { name: 'Terms & Conditions', href: '#' },
-    { name: 'Privacy', href: '#' },
-  ],
-  customerService: [
-    { name: 'Contact', href: '#' },
-    { name: 'Shipping', href: '#' },
-    { name: 'Returns', href: '#' },
-    { name: 'Warranty', href: '#' },
-    { name: 'Secure Payments', href: '#' },
-    { name: 'FAQ', href: '#' },
-    { name: 'Find a store', href: '#' },
-  ],
-}
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -353,10 +303,8 @@ export default function CategoriesPreviews() {
                       />
                     </div>
                     <div className="mt-4 flex items-center justify-between text-base font-medium text-gray-900">
-                      <h3 className='text-[#c19434]'>{product.name}</h3>
-                      <p>{product.price}</p>
+                      <h3 className='mx-auto text-[#c19434]'>{product.name}</h3>
                     </div>
-                    <p className="mt-1 text-sm italic text-gray-500">{product.description}</p>
                   </a>
                 ))}
               </div>
@@ -401,10 +349,8 @@ export default function CategoriesPreviews() {
                       />
                     </div>
                     <div className="mt-4 flex items-center justify-between text-base font-medium text-gray-900">
-                      <h3 className='text-[#c19434]'>{product.name}</h3>
-                      <p>{product.price}</p>
+                      <h3 className='mx-auto text-[#c19434]'>{product.name}</h3>
                     </div>
-                    <p className="mt-1 text-sm italic text-gray-500">{product.description}</p>
                   </a>
                 ))}
               </div>

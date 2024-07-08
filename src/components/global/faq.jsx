@@ -1,6 +1,3 @@
-
-
-
 const policies = [
   {
     name: 'Free delivery all year long',
@@ -35,11 +32,11 @@ export default function FAQ() {
     <section aria-labelledby="details-heading">
       <div className="flex flex-col items-center text-center">
         <h2 id="details-heading" className="text-3xl font-bold tracking-tight text-[#c19434]  sm:text-4xl">
-          The Fine Details
+        Exquisite Handmade Arts
         </h2>
-        <p className="mt-3 max-w-3xl text-lg text-gray-600">
-          Our patented padded snack sleeve construction protects your favorite treats from getting smooshed during
-          all-day adventures, long shifts at work, and tough travel schedules.
+        <p className="mt-3 max-w-5xl text-lg text-gray-600">
+        Discover the beauty and craftsmanship of my handmade arts collection. 
+        Each piece is meticulously crafted with heart and soul, offering you stunning additions to your home that blend tradition, creativity, and exceptional quality.
         </p>
       </div>
 
@@ -52,9 +49,12 @@ export default function FAQ() {
               className="h-full w-full object-cover object-center"
             />
           </div>
-          <p className="mt-8 text-base text-gray-500">
-            The 20L model has enough space for 370 candy bars, 6 cylinders of chips, 1,220 standard gumballs, or
-            any combination of on-the-go treats that your heart desires. Yes, we did the math.
+          <h2 id="faq1" className="text-center font-bold text-3xl tracking-tight text-[#c19434] sm:text-2xl">
+            The Fine Details
+          </h2>
+          <p className="mt-2 text-base text-gray-500">
+          My handmade arts are not just products; they are stories woven with care and dedication. 
+          From intricate brushstrokes to vibrant color palettes, each painting reflects my passion and expertise.
           </p>
         </div>
         <div>
@@ -65,9 +65,12 @@ export default function FAQ() {
               className="h-full w-full object-cover object-center"
             />
           </div>
-          <p className="mt-8 text-base text-gray-500">
-            Up your snack organization game with multiple compartment options. The quick-access stash pouch is
-            ready for even the most unexpected snack attacks and sharing needs.
+          <h2 id="faq2" className="text-center font-bold text-3xl tracking-tight text-[#c19434] sm:text-2xl">
+            Quality and Craftsmanship
+          </h2>
+          <p className="mt-2 text-base text-gray-500">
+          I use only the finest materials to ensure that each painting is as durable as it is beautiful. 
+          By employing traditional techniques and a keen artistic eye, I ensure that every piece is a true work of art.
           </p>
         </div>
       </div>
