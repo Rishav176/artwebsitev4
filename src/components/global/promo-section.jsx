@@ -36,7 +36,7 @@ const collections = [
             </div>
             <div className="absolute inset-0 bg-gray-900 opacity-50" />
           </div>
-          <div className="h-32 w-full bg-white md:h-40 lg:h-48" />
+          <div className=" w-full bg-white h-70 " />
         </div>
   
         <div className="relative mx-auto max-w-3xl px-4 pb-96 text-center sm:px-6 sm:pb-0 lg:px-8">

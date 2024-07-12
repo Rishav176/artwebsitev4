@@ -30,11 +30,11 @@ export default function Header() {
     <Disclosure as="header" className="bg-white shadow">
       {({ open }) => (
         <>
-          <div className="mx-auto  px-2 sm:px-4 lg:divide-y lg:divide-gray-200 lg:px-8">
+          <div className="mx-auto  px-2 pb-5 sm:px-4  lg:px-8">
             <div className="relative flex h-16 justify-between w-full">
               <div className="relative z-10 flex px-2 items-center w-full">
                 <div className="flex flex-shrink-0 items-center">
-                  <h1 className="text-xl font-semibold text-gray-700">RituHandmadeArts</h1>
+                  <h1 className="text-2xl font-semibold text-gray-700">RituHandmadeArts</h1>
                 </div>
               </div>
               <div className="relative z-0 flex flex-1 items-center justify-center px-2 md:absolute sm:inset-0 sm:flex sm:flex-col sm:justify-center sm:space-y-2">
@@ -106,14 +106,14 @@ export default function Header() {
                 </Menu>
               </div>
             </div>
-            <nav className="hidden lg:flex lg:space-x-8 lg:py-2 justify-center" aria-label="Global">
+            <nav className="hidden lg:flex lg:space-x-8 pt-5 lg:pb-2 justify-center" aria-label="Global">
               {navigation.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
                   className={classNames(
                     item.current ? 'bg-gray-100 text-gray-900' : 'text-gray-900 hover:bg-gray-50 hover:text-gray-900',
-                    'inline-flex  items-center rounded-md px-3 py-2 text-sm font-medium',
+                    'inline-flex  items-center rounded-md px-20 py-2 text-lg font-medium',
                   )}
                   aria-current={item.current ? 'page' : undefined}
                 >
