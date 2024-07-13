@@ -127,7 +127,7 @@ const products = [
   export default function Products_Featured() {
     return (
       <div className="bg-white">
-        <div className="py-16 sm:py-24 lg:mx-auto lg:max-w-7xl lg:px-8">
+        <div className="py-16 sm:py-24 lg:mx-auto lg:max-w-screen-2xl lg:px-8">
           <div className="flex items-center justify-between px-4 sm:px-6 lg:px-0">
             <h2 className="text-2xl font-bold tracking-tight text-[#c19434]">Trending products</h2>
             <a href="/categories" className="hidden text-sm font-semibold text-[#c19434] hover:opacity-75 hover:border-b hover:border-[#c19434] sm:block">

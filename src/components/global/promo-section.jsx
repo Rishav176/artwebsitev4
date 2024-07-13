@@ -36,7 +36,7 @@ const collections = [
             </div>
             <div className="absolute inset-0 bg-gray-900 opacity-50" />
           </div>
-          <div className=" w-full bg-white h-70 " />
+          <div className=" w-full bg-white h-90 " />
         </div>
   
         <div className="relative mx-auto max-w-3xl px-4 pb-96 text-center sm:px-6 sm:pb-0 lg:px-8">
@@ -56,7 +56,7 @@ const collections = [
             <div className="h-48 w-full bg-white" />
           </div>
           <div className="relative py-32">
-            <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl md:text-4xl">Hand-pick from our range of Different Collections</h1>
+            <h1 className="text-3xl font-semibold tracking-tight text-[#c19434]  sm:text-4xl md:text-4xl">Hand-pick from our range of Different Collections</h1>
             <div className="mt-4 sm:mt-6">
               <a
                 href="#"

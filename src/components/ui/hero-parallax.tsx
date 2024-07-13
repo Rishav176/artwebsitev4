@@ -1,160 +1,217 @@
-"use client";
-import React from "react";
-import {
-  motion,
-  useScroll,
-  useTransform,
-  useSpring,
-  MotionValue,
-} from "framer-motion";
-import Image from "next/image";
-import Link from "next/link";
-import { FlipWordsDemo } from "./FlipWordsHeading.jsx";
+'use client'
 
-export const HeroParallax = ({
-  products,
-}: {
-  products: {
-    title: string;
-    link: string;
-    thumbnail: string;
-  }[];
-}) => {
-  const firstRow = products.slice(0, 5);
-  const secondRow = products.slice(5, 10);
-  const thirdRow = products.slice(10, 15);
-  const ref = React.useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
+import { useState } from 'react'
+import { Dialog, DialogPanel } from '@headlessui/react'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { FlipWordsDemo } from './FlipWordsHeading'
 
-  const springConfig = { stiffness: 300, damping: 30, bounce: 100 };
+const navigation = [
+  { name: 'Product', href: '#' },
+  { name: 'Features', href: '#' },
+  { name: 'Marketplace', href: '#' },
+  { name: 'Company', href: '#' },
+]
 
-  const translateX = useSpring(
-    useTransform(scrollYProgress, [0, 1], [0, 1000]),
-    springConfig
-  );
-  const translateXReverse = useSpring(
-    useTransform(scrollYProgress, [0, 1], [0, -1000]),
-    springConfig
-  );
-  const rotateX = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [15, 0]),
-    springConfig
-  );
-  const opacity = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [0.2, 1]),
-    springConfig
-  );
-  const rotateZ = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [20, 0]),
-    springConfig
-  );
-  const translateY = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [-700, 500]),
-    springConfig
-  );
+export default function Example() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
   return (
-    <div
-      ref={ref}
-      className="h-[250vh] md:h-[250vh] xl:h-[310vh] 2xl:h-[250vh]   bg-black py-40 overflow-hidden  antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d] "
-    >
-      <Header />
-      <motion.div
-        style={{
-          rotateX,
-          rotateZ,
-          translateY,
-          opacity,
-        }}
-        className=""
-      >
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
-          {firstRow.map((product) => (
-            <ProductCard
-              product={product}
-              translate={translateX}
-              key={product.title}
+    <div className="bg-white">
+      <header className="absolute inset-x-0 top-0 z-50">
+        <nav aria-label="Global" className="mx-auto flex  items-center justify-between p-6 lg:px-8">
+          <div className="flex lg:flex-1">
+            <a href="#" className="-m-1.5 p-1.5">
+              <span className="sr-only">Your Company</span>
+              <img
+                alt=""
+                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                className="h-8 w-auto"
+              />
+            </a>
+          </div>
+          <div className="flex lg:hidden">
+            <button
+              type="button"
+              onClick={() => setMobileMenuOpen(true)}
+              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+            >
+              <span className="sr-only">Open main menu</span>
+              <Bars3Icon aria-hidden="true" className="h-6 w-6" />
+            </button>
+          </div>
+          <div className="hidden lg:flex lg:gap-x-12">
+            {navigation.map((item) => (
+              <a key={item.name} href={item.href} className="text-sm font-semibold leading-6 text-gray-900">
+                {item.name}
+              </a>
+            ))}
+          </div>
+          <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+            <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+              Log in <span aria-hidden="true">&rarr;</span>
+            </a>
+          </div>
+        </nav>
+        <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
+          <div className="fixed inset-0 z-50" />
+          <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+            <div className="flex items-center justify-between">
+              <a href="#" className="-m-1.5 p-1.5">
+                <span className="sr-only">Your Company</span>
+                <img
+                  alt=""
+                  src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                  className="h-8 w-auto"
+                />
+              </a>
+              <button
+                type="button"
+                onClick={() => setMobileMenuOpen(false)}
+                className="-m-2.5 rounded-md p-2.5 text-gray-700"
+              >
+                <span className="sr-only">Close menu</span>
+                <XMarkIcon aria-hidden="true" className="h-6 w-6" />
+              </button>
+            </div>
+            <div className="mt-6 flow-root">
+              <div className="-my-6 divide-y divide-gray-500/10">
+                <div className="space-y-2 py-6">
+                  {navigation.map((item) => (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                    >
+                      {item.name}
+                    </a>
+                  ))}
+                </div>
+                <div className="py-6">
+                  <a
+                    href="#"
+                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  >
+                    Log in
+                  </a>
+                </div>
+              </div>
+            </div>
+          </DialogPanel>
+        </Dialog>
+      </header>
+      <main>
+        <div className="relative isolate">
+          <svg
+            aria-hidden="true"
+            className="absolute inset-x-0 top-0 -z-10 h-[64rem] w-full stroke-gray-200 [mask-image:radial-gradient(32rem_32rem_at_center,white,transparent)]"
+          >
+            <defs>
+              <pattern
+                x="50%"
+                y={-1}
+                id="1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84"
+                width={200}
+                height={200}
+                patternUnits="userSpaceOnUse"
+              >
+                <path d="M.5 200V.5H200" fill="none" />
+              </pattern>
+            </defs>
+            <svg x="50%" y={-1} className="overflow-visible fill-gray-50">
+              <path
+                d="M-200 0h201v201h-201Z M600 0h201v201h-201Z M-400 600h201v201h-201Z M200 800h201v201h-201Z"
+                strokeWidth={0}
+              />
+            </svg>
+            <rect fill="url(#1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84)" width="100%" height="100%" strokeWidth={0} />
+          </svg>
+          <div
+            aria-hidden="true"
+            className="absolute left-1/2 right-0 top-0 -z-10 -ml-24 transform-gpu overflow-hidden blur-3xl lg:ml-24 xl:ml-48"
+          >
+            <div
+              style={{
+                clipPath:
+                  'polygon(63.1% 29.5%, 100% 17.1%, 76.6% 3%, 48.4% 0%, 44.6% 4.7%, 54.5% 25.3%, 59.8% 49%, 55.2% 57.8%, 44.4% 57.2%, 27.8% 47.9%, 35.1% 81.5%, 0% 97.7%, 39.2% 100%, 35.2% 81.4%, 97.2% 52.8%, 63.1% 29.5%)',
+              }}
+              className="aspect-[801/1036] w-[50.0625rem] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30"
             />
-          ))}
-        </motion.div>
-        <motion.div className="flex flex-row  mb-20 space-x-20 ">
-          {secondRow.map((product) => (
-            <ProductCard
-              product={product}
-              translate={translateXReverse}
-              key={product.title}
-            />
-          ))}
-        </motion.div>
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-20">
-          {thirdRow.map((product) => (
-            <ProductCard
-              product={product}
-              translate={translateX}
-              key={product.title}
-            />
-          ))}
-        </motion.div>
-      </motion.div>
+          </div>
+          <div className="overflow-hidden">
+            <div className="mx-auto max-w-7xl px-6 pb-32 pt-36 sm:pt-60 lg:px-8 lg:pt-32">
+              <div className="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
+                <div className="relative w-full max-w-xl lg:shrink-0 xl:max-w-2xl">
+                  <h1 className="text-4xl font-bold tracking-tight  sm:text-6xl">
+                    <FlipWordsDemo words={['RituHandmadeArts']} classes={'text-[#c19434]'}/>
+                  </h1>
+                  <p className="mt-6 text-lg leading-8 text-gray-600 sm:max-w-md lg:max-w-none">
+                  Discover unique, handcrafted paintings made with passion and skill. Explore our collection and find the perfect piece to add beauty and individuality to your space.
+                  </p>
+                  <div className="mt-10 flex items-center gap-x-6">
+                    <a
+                      href="#"
+                      className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                    >
+                      Get started
+                    </a>
+                    <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+                      Live demo <span aria-hidden="true">→</span>
+                    </a>
+                  </div>
+                </div>
+                <div className="mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0">
+                  <div className="ml-auto w-44 flex-none space-y-8 pt-32 sm:ml-0 sm:pt-80 lg:order-last lg:pt-36 xl:order-none xl:pt-80">
+                    <div className="relative">
+                      <img
+                        alt=""
+                        src="/art1.jpg"
+                        className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
+                      />
+                      <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
+                    </div>
+                  </div>
+                  <div className="mr-auto w-44 flex-none space-y-8 sm:mr-0 sm:pt-52 lg:pt-36">
+                    <div className="relative">
+                      <img
+                        alt=""
+                        src="/art2.jpg"
+                        className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
+                      />
+                      <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
+                    </div>
+                    <div className="relative">
+                      <img
+                        alt=""
+                        src="/art3.jpg"
+                        className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
+                      />
+                      <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
+                    </div>
+                  </div>
+                  <div className="w-44 flex-none space-y-8 pt-32 sm:pt-0">
+                    <div className="relative">
+                      <img
+                        alt=""
+                        src="/art4.jpg"
+                        className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
+                      />
+                      <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
+                    </div>
+                    <div className="relative">
+                      <img
+                        alt=""
+                        src="/art5.jpg"
+                        className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
+                      />
+                      <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
     </div>
-  );
-};
-
-export const Header = () => {
-  return (
-    <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full  left-0 top-0 md:pl-6">
-      <h1 className="text-2xl md:text-7xl font-bold dark:text-white " >
-        <FlipWordsDemo words={["RituHandmadeArts"]} classes={'text-7xl font-semibold '}/>
-      </h1>
-      <p className="max-w-2xl text-base mt-2 md:text-2xl dark:text-neutral-200 md:pt-6 ">
-      Discover unique, handcrafted paintings made with passion and skill. Explore our collection and find the perfect piece to add beauty and individuality to your space.
-      </p>
-    </div>
-  );
-};
-
-export const ProductCard = ({
-  product,
-  translate,
-}: {
-  product: {
-    title: string;
-    link: string;
-    thumbnail: string;
-  };
-  translate: MotionValue<number>;
-}) => {
-  return (
-    <motion.div
-      style={{
-        x: translate,
-        boxShadow:'20px 20px 60px 0px rgba(255,255,255,0.3)'
-      }}
-      whileHover={{
-        y: -20,
-      }}
-      key={product.title}
-      className="group/product h-96 w-[30rem] relative flex-shrink-0 shadow-lg  rounded-xl"
-      
-    >
-      <Link
-        href={product.link}
-        className="block group-hover/product:shadow-2xl "
-      >
-        <Image
-          src={product.thumbnail}
-          height="600"
-          width="600"
-          className="object-cover object-left-top absolute h-full w-full inset-0 rounded-xl"
-          alt={product.title}
-        />
-      </Link>
-      <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 bg-black pointer-events-none"></div>
-      <h2 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-white">
-        {product.title}
-      </h2>
-    </motion.div>
-  );
-};
+  )
+}

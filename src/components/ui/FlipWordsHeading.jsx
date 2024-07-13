@@ -6,7 +6,7 @@ export function FlipWordsDemo(props) {
   
     return (
       <div className="flex justify-start items-center ">
-        <div className={` text-neutral-600 dark:text-neutral-400 ${props.classes}`}>
+        <div className={` text-[#c19434] dark:text-[#c19434] ${props.classes}`}>
           <FlipWords words={props.words} />
         </div>
       </div>

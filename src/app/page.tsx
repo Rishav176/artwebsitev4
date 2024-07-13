@@ -1,4 +1,4 @@
-import {  HeroParallax } from "../components/ui/hero-parallax";
+import   HeroParallax  from "../components/ui/hero-parallax";
 import { products } from "@/lib/constant";
 import Featured from "@/components/global/featured";
 import Products_Featured from "@/components/global/products-featured";
@@ -9,11 +9,11 @@ export default function Home() {
   return (
     <main >
       
-      <HeroParallax products={products}/>
+      <HeroParallax/>
       
       <Featured />
-      
       <PromoSection />
+      
       <Products_Featured />
       <FAQ />
       
