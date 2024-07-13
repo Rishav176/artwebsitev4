@@ -126,7 +126,6 @@ const Staticproducts = [
   ]
   
   export default function Products_Featured() {
-   
     return (
       <div className="bg-white">
         <div className="py-16 sm:py-24 lg:mx-auto lg:max-w-screen-2xl lg:px-8">

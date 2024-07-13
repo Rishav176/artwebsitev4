@@ -1,5 +1,3 @@
-
-
 export async function storefront(query, variables= {}) {
     const response = await fetch(process.env.NEXT_PUBLIC_SHOPIFY_API_URL,{
         method: 'POST',
