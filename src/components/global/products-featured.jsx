@@ -1,5 +1,6 @@
 import Button from '../ui/button'
-const products = [
+
+const Staticproducts = [
     {
       id: 1,
       name: 'Machined Pen',
@@ -125,6 +126,7 @@ const products = [
   ]
   
   export default function Products_Featured() {
+   
     return (
       <div className="bg-white">
         <div className="py-16 sm:py-24 lg:mx-auto lg:max-w-screen-2xl lg:px-8">
@@ -142,7 +144,7 @@ const products = [
                 role="list"
                 className="mx-4 inline-flex space-x-8 sm:mx-6 lg:mx-0 lg:grid lg:grid-cols-4 lg:gap-x-8 lg:space-x-0 "
               >
-                {products.map((product) => (
+                {Staticproducts.map((product) => (
                   <li key={product.id} className="inline-flex w-64 flex-col text-center lg:w-auto pb-6">
                     <div className="group relative">
                       <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200">
@@ -184,3 +186,40 @@ const products = [
       </div>
     )
   }
+
+  export async function getStaticProps() {
+    const {data} = await storefront(productsQuery)
+    return {
+      props:{
+        products: data.products
+      }
+    }
+  }
+  const gql= String.raw
+  const productsQuery = gql`
+  query products{
+  products(first:12){
+    edges{
+      node{
+        title
+        handle
+        tags
+        priceRangeV2{
+          minVariantPrice{
+            amount
+          }
+        }
+        images(first:1){
+          edges{
+            node{
+              url(transform:{})
+              
+            }
+          }
+        }
+      }
+    }
+  }
+  }
+  `
+ 
