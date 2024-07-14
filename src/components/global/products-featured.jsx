@@ -1,5 +1,7 @@
+'use client'
 import Button from '../ui/button'
-
+import {storefront} from '@/utils/index'
+import Client from 'shopify-buy';
 const Staticproducts = [
     {
       id: 1,
@@ -125,7 +127,9 @@ const Staticproducts = [
     // More products...
   ]
   
-  export default function Products_Featured() {
+  export default async function Products_Featured(products) {
+    //const prods= getAllProducts()
+    console.log(products)
     return (
       <div className="bg-white">
         <div className="py-16 sm:py-24 lg:mx-auto lg:max-w-screen-2xl lg:px-8">
@@ -185,18 +189,9 @@ const Staticproducts = [
       </div>
     )
   }
-
-  export async function getStaticProps() {
-    const {data} = await storefront(productsQuery)
-    return {
-      props:{
-        products: data.products
-      }
-    }
-  }
   const gql= String.raw
-  const productsQuery = gql`
-  query products{
+    const productsQuery = gql`
+  {
   products(first:12){
     edges{
       node{
@@ -219,6 +214,64 @@ const Staticproducts = [
       }
     }
   }
+  }`
+  export async function shopifyFetch({ query, variables={}}) {
+    const endpoint = process.env.NEXT_PUBLIC_SHOPIFY_DOMAIN;
+    const key = process.env.NEXT_PUBLIC_STOREFRONT_ACCESS_TOKEN;
+  
+    try {
+      const result = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Shopify-Storefront-Access-Token': key
+        },
+        body: { query, variables } && JSON.stringify({ query, variables })
+      });
+      
+      return {
+        status: result.status,
+        body: await result.json()
+      };
+    } catch (error) {
+      console.error('Error:');
+      return {
+        status: 500,
+        error: 'Error receiving data'
+      };
+    }
   }
-  `
+  export async function getAllProducts(){
+    return shopifyFetch({ query: `{
+  products(first:12){
+    edges{
+      node{
+        title
+				handle
+        tags
+        priceRange{
+          minVariantPrice{
+            amount
+          }
+        }
+        images(first:1){
+          edges{
+            node{
+              url(transform:{})
+              
+            }
+          }
+        }
+      }
+    }
+  }
+}` });
+  }
+ 
+  // export async function getStaticProps() {
+    //   const initial = await storefront(productsQuery)
+    //   const products= initial.data.products.edges
+    //   return products
+    // }
+    
  

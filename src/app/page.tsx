@@ -5,6 +5,7 @@ import Products_Featured from "@/components/global/products-featured";
 import PromoSection from "@/components/global/promo-section";
 import FAQ from "@/components/global/faq";
 import Testimonials from "@/components/global/testimonial";
+import { storefront } from "@/utils";
 export default function Home() {
   return (
     <main >
@@ -14,7 +15,7 @@ export default function Home() {
       <Featured />
       <PromoSection />
       
-      <Products_Featured />
+      <Products_Featured products={getProducts()}/>
       <FAQ />
       
       
@@ -22,4 +23,33 @@ export default function Home() {
   );
 }
 
+export async function getProducts() {
+      const {data} = await storefront(productsQuery)
+      return data.products
+    }
 
+const productsQuery= 
+`{
+  products(first:12){
+    edges{
+      node{
+        title
+				handle
+        tags
+        priceRange{
+          minVariantPrice{
+            amount
+          }
+        }
+        images(first:1){
+          edges{
+            node{
+              url(transform:{})
+              
+            }
+          }
+        }
+      }
+    }
+  }
+}`
