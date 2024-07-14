@@ -127,7 +127,7 @@ const Staticproducts = [
     // More products...
   ]
   
-  export default async function Products_Featured(products) {
+  export default function Products_Featured(products) {
     //const prods= getAllProducts()
     const extractedProducts=JSON.parse(products.products.value).edges
     console.log(extractedProducts)
@@ -193,84 +193,7 @@ const Staticproducts = [
       </div>
     )
   }
-  const gql= String.raw
-    const productsQuery = gql`
-  {
-  products(first:12){
-    edges{
-      node{
-        title
-        handle
-        tags
-        priceRangeV2{
-          minVariantPrice{
-            amount
-          }
-        }
-        images(first:1){
-          edges{
-            node{
-              url(transform:{})
-              
-            }
-          }
-        }
-      }
-    }
-  }
-  }`
-  export async function shopifyFetch({ query, variables={}}) {
-    const endpoint = process.env.NEXT_PUBLIC_SHOPIFY_DOMAIN;
-    const key = process.env.NEXT_PUBLIC_STOREFRONT_ACCESS_TOKEN;
-  
-    try {
-      const result = await fetch(endpoint, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-Shopify-Storefront-Access-Token': key
-        },
-        body: { query, variables } && JSON.stringify({ query, variables })
-      });
-      
-      return {
-        status: result.status,
-        body: await result.json()
-      };
-    } catch (error) {
-      console.error('Error:');
-      return {
-        status: 500,
-        error: 'Error receiving data'
-      };
-    }
-  }
-  export async function getAllProducts(){
-    return shopifyFetch({ query: `{
-  products(first:12){
-    edges{
-      node{
-        title
-				handle
-        tags
-        priceRange{
-          minVariantPrice{
-            amount
-          }
-        }
-        images(first:1){
-          edges{
-            node{
-              url(transform:{})
-              
-            }
-          }
-        }
-      }
-    }
-  }
-}` });
-  }
+
  
   // export async function getStaticProps() {
     //   const initial = await storefront(productsQuery)
