@@ -6,10 +6,10 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { FlipWordsDemo } from './FlipWordsHeading'
 
 const navigation = [
-  { name: 'Home', href: '/' },
-  { name: 'Shop Now', href: '/categories' },
+  { name: 'Product', href: '#' },
+  { name: 'Features', href: '#' },
   { name: 'Marketplace', href: '#' },
-  { name: 'About', href: '#' },
+  { name: 'Company', href: '#' },
 ]
 
 export default function Example() {
@@ -138,7 +138,7 @@ export default function Example() {
             />
           </div>
           <div className="overflow-hidden">
-            <div className="px-6 max-w-7xl px-6 pb-32 pt-36 sm:pt-60 lg:px-8 lg:pt-32">
+            <div className="mx-auto max-w-7xl px-6 pb-32 pt-36 sm:pt-60 lg:px-8 lg:pt-32">
               <div className="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
                 <div className="relative w-full max-w-xl lg:shrink-0 xl:max-w-2xl">
                   <h1 className="text-4xl font-bold tracking-tight  sm:text-6xl">
