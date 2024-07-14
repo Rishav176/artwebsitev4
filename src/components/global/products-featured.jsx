@@ -128,9 +128,9 @@ const Staticproducts = [
   ]
   
   export default function Products_Featured(products) {
-    //const prods= getAllProducts()
+    
     const extractedProducts=JSON.parse(products.products.value).edges
-    console.log(extractedProducts)
+    
     return (
       <div className="bg-white">
         <div className="py-16 sm:py-24 lg:mx-auto lg:max-w-screen-2xl lg:px-8">

@@ -6,7 +6,8 @@ import PromoSection from "@/components/global/promo-section";
 import FAQ from "@/components/global/faq";
 import Testimonials from "@/components/global/testimonial";
 import { storefront } from "@/utils";
-export default function Home() {
+export default async function Home() {
+  const products = await getProducts()
   return (
     <main >
       
@@ -15,7 +16,7 @@ export default function Home() {
       <Featured />
       <PromoSection />
       
-      <Products_Featured products={getProducts()}/>
+     <Products_Featured products={getProducts()}/>
       <FAQ />
       
       
@@ -27,7 +28,7 @@ export async function getProducts() {
       const {data} = await storefront(productsQuery)
       return data.products
     }
-
+  
 const productsQuery= 
 `{
   products(first:12){
