@@ -1,3 +1,4 @@
+'use server'
 import   HeroParallax  from "../components/ui/hero-parallax";
 import { products } from "@/lib/constant";
 import Featured from "@/components/global/featured";

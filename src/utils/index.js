@@ -1,5 +1,6 @@
+
 export async function storefront(query, variables= {}) {
-    const response = await fetch(process.env.NEXT_PUBLIC_SHOPIFY_API_URL,{
+    const response = await fetch( process.env.NEXT_PUBLIC_SHOPIFY_API_URL,{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -11,4 +12,4 @@ export async function storefront(query, variables= {}) {
         })
     })
     return response.json()
-} 
+}

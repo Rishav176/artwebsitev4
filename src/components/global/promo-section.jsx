@@ -59,7 +59,7 @@ const collections = [
             <h1 className="text-3xl font-semibold tracking-tight text-[#c19434]  sm:text-4xl md:text-4xl">Hand-pick from our range of Different Collections</h1>
             <div className="mt-4 sm:mt-6">
               <a
-                href="#"
+                href="/categories"
                 className="inline-block rounded-md border border-transparent bg-[#c19434] px-8 py-3 font-medium text-white hover:opacity-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 "
               >
                 Shop Collection
