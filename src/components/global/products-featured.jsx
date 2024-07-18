@@ -1,135 +1,32 @@
-'use client'
-import Button from '../ui/button'
-import {storefront} from '@/utils/index'
-import Client from 'shopify-buy';
-const Staticproducts = [
-    {
-      id: 1,
-      name: 'Machined Pen',
-      color: 'Black',
-      price: '$35',
-      href: '#',
-      imageSrc: '/art5.jpg',
-      imageAlt: 'Black machined steel pen with hexagonal grip and small white logo at top.',
-     
-    },
-    {
-        id: 2,
-        name: 'Machined Pen',
-        color: 'Black',
-        price: '$35',
-        href: '#',
-        imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-02-product-01.jpg',
-        imageAlt: 'Black machined steel pen with hexagonal grip and small white logo at top.',
-       
-      },
-      {
-        id: 3,
-        name: 'Machined Pen',
-        color: 'Black',
-        price: '$35',
-        href: '#',
-        imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-02-product-01.jpg',
-        imageAlt: 'Black machined steel pen with hexagonal grip and small white logo at top.',
-       
-      },
-      {
-        id: 4,
-        name: 'Machined Pen',
-        color: 'Black',
-        price: '$35',
-        href: '#',
-        imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-02-product-01.jpg',
-        imageAlt: 'Black machined steel pen with hexagonal grip and small white logo at top.',
-        
-      },
-      {
-        id: 5,
-        name: 'Machined Pen',
-        color: 'Black',
-        price: '$35',
-        href: '#',
-        imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-02-product-01.jpg',
-        imageAlt: 'Black machined steel pen with hexagonal grip and small white logo at top.',
-      
-      },
-      {
-        id: 6,
-        name: 'Machined Pen',
-        color: 'Black',
-        price: '$35',
-        href: '#',
-        imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-02-product-01.jpg',
-        imageAlt: 'Black machined steel pen with hexagonal grip and small white logo at top.',
-      
-      },
-      {
-        id: 7,
-        name: 'Machined Pen',
-        color: 'Black',
-        price: '$35',
-        href: '#',
-        imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-02-product-01.jpg',
-        imageAlt: 'Black machined steel pen with hexagonal grip and small white logo at top.',
-      
-      },
-      {
-        id: 8,
-        name: 'Machined Pen',
-        color: 'Black',
-        price: '$35',
-        href: '#',
-        imageSrc: 'art6.jpg',
-        imageAlt: 'Black machined steel pen with hexagonal grip and small white logo at top.',
-     
-      },
-      {
-        id: 1,
-        name: 'Machined Pen',
-        color: 'Black',
-        price: '$35',
-        href: '#',
-        imageSrc: '/art5.jpg',
-        imageAlt: 'Black machined steel pen with hexagonal grip and small white logo at top.',
-       
-      },
-      {
-          id: 2,
-          name: 'Machined Pen',
-          color: 'Black',
-          price: '$35',
-          href: '#',
-          imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-02-product-01.jpg',
-          imageAlt: 'Black machined steel pen with hexagonal grip and small white logo at top.',
-         
-        },
-        {
-          id: 3,
-          name: 'Machined Pen',
-          color: 'Black',
-          price: '$35',
-          href: '#',
-          imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-02-product-01.jpg',
-          imageAlt: 'Black machined steel pen with hexagonal grip and small white logo at top.',
-         
-        },
-        {
-          id: 4,
-          name: 'Machined Pen',
-          color: 'Black',
-          price: '$35',
-          href: '#',
-          imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-02-product-01.jpg',
-          imageAlt: 'Black machined steel pen with hexagonal grip and small white logo at top.',
-          
-        },
+'use client';
+import { useEffect, useState } from 'react';
+import Button from '../ui/button';
+import { getProducts } from '@/lib/constant';
 
-    // More products...
-  ]
-  
-  export default function Products_Featured(products) {
-    
-    const extractedProducts=JSON.parse(products.products.value).edges
+export default function Products_Featured() {
+  const [products, setProducts] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    async function fetchProducts() {
+      try {
+        const data = await getProducts();
+        setProducts(data);
+      } catch (error) {
+        setError(error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchProducts();
+  }, []);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error fetching products: {error.message}</p>;
+  if (!products || !products.edges) return <p>No products available</p>;
+
+  const extractedProducts = products.edges;
     
     return (
       <div className="bg-white">
