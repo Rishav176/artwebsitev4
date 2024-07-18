@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { Dialog, DialogPanel } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { FlipWordsDemo } from './FlipWordsHeading'
+import Image from 'next/image'
 
 const navigation = [
   { name: 'Home', href: '/' },
@@ -139,7 +140,7 @@ export default function Example() {
           </div>
           <div className="overflow-hidden">
             <div className="mx-auto max-w-7xl px-6 pb-32 pt-36 sm:pt-60 lg:px-8 lg:pt-32">
-              <div className="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
+              <div className="mx-auto flex justify-center max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
                 <div className="relative w-full max-w-xl lg:shrink-0 xl:max-w-2xl">
                   <h1 className="text-4xl font-bold tracking-tight  sm:text-6xl">
                     <FlipWordsDemo words={['RituHandmadeArts']} classes={'text-[#c19434]'}/>
@@ -160,53 +161,73 @@ export default function Example() {
                   </div>
                 </div>
                 <div className="mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0">
-                  <div className="ml-auto w-44 flex-none space-y-8 pt-32 sm:ml-0 sm:pt-80 lg:order-last lg:pt-36 xl:order-none xl:pt-80">
-                    <div className="relative">
-                      <img
-                        alt=""
-                        src="/art1.jpg"
-                        className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
-                      />
-                      <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
-                    </div>
-                  </div>
-                  <div className="mr-auto w-44 flex-none space-y-8 sm:mr-0 sm:pt-52 lg:pt-36">
-                    <div className="relative">
-                      <img
-                        alt=""
-                        src="/art2.jpg"
-                        className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
-                      />
-                      <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
-                    </div>
-                    <div className="relative">
-                      <img
-                        alt=""
-                        src="/art3.jpg"
-                        className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
-                      />
-                      <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
-                    </div>
-                  </div>
-                  <div className="w-44 flex-none space-y-8 pt-32 sm:pt-0">
-                    <div className="relative">
-                      <img
-                        alt=""
-                        src="/art4.jpg"
-                        className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
-                      />
-                      <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
-                    </div>
-                    <div className="relative">
-                      <img
-                        alt=""
-                        src="/art5.jpg"
-                        className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
-                      />
-                      <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
-                    </div>
-                  </div>
-                </div>
+  <div className="ml-auto w-44 flex-none space-y-8 pt-32 sm:ml-0 sm:pt-80 lg:order-last lg:pt-36 xl:order-none xl:pt-80">
+    <div className="relative">
+      <div className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 shadow-lg">
+        <Image
+          alt=""
+          src="/art1.jpg"
+          layout="fill"
+          style={{ objectFit: 'cover' }}
+          className="rounded-xl"
+        />
+      </div>
+      <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
+    </div>
+  </div>
+  <div className="mr-auto w-44 flex-none space-y-8 sm:mr-0 sm:pt-52 lg:pt-36">
+    <div className="relative">
+      <div className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 shadow-lg">
+        <Image
+          alt=""
+          src="/art2.jpg"
+          layout="fill"
+          style={{ objectFit: 'cover' }}
+          className="rounded-xl"
+        />
+      </div>
+      <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
+    </div>
+    <div className="relative">
+      <div className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 shadow-lg">
+        <Image
+          alt=""
+          src="/art3.jpg"
+          layout="fill"
+          style={{ objectFit: 'cover' }}
+          className="rounded-xl"
+        />
+      </div>
+      <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
+    </div>
+  </div>
+  <div className="w-44 flex-none space-y-8 pt-32 sm:pt-0">
+    <div className="relative">
+      <div className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 shadow-lg">
+        <Image
+          alt=""
+          src="/art4.jpg"
+          layout="fill"
+          style={{ objectFit: 'cover' }}
+          className="rounded-xl"
+        />
+      </div>
+      <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
+    </div>
+    <div className="relative">
+      <div className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 shadow-lg">
+        <Image
+          alt=""
+          src="/art5.jpg"
+          layout="fill"
+          style={{ objectFit: 'cover' }}
+          className="rounded-xl"
+        />
+      </div>
+      <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
+    </div>
+  </div>
+</div>
               </div>
             </div>
           </div>
