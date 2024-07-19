@@ -73,7 +73,7 @@ const products = [
   {
     id: 1,
     name: 'Earthen Bottle',
-    href: '#',
+    href: 'categories/product1',
     price: '$48',
     imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg',
     imageAlt: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
@@ -81,7 +81,7 @@ const products = [
   {
     id: 2,
     name: 'Nomad Tumbler',
-    href: '#',
+    href: 'categories/product2',
     price: '$35',
     imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg',
     imageAlt: 'Olive drab green insulated bottle with flared screw lid and flat top.',
@@ -89,7 +89,7 @@ const products = [
   {
     id: 3,
     name: 'Focus Paper Refill',
-    href: '#',
+    href: 'categories/product3',
     price: '$89',
     imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg',
     imageAlt: 'Person using a pen to cross a task off a productivity paper card.',
@@ -97,7 +97,7 @@ const products = [
   {
     id: 4,
     name: 'Machined Mechanical Pencil',
-    href: '#',
+    href: 'categories/product4',
     price: '$35',
     imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg',
     imageAlt: 'Hand holding black machined steel mechanical pencil with brass tip and top.',
@@ -105,7 +105,7 @@ const products = [
   {
     id: 1,
     name: 'Earthen Bottle',
-    href: '#',
+    href: 'categories/product5',
     price: '$48',
     imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg',
     imageAlt: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
@@ -113,7 +113,7 @@ const products = [
   {
     id: 2,
     name: 'Nomad Tumbler',
-    href: '#',
+    href: 'categories/product6',
     price: '$35',
     imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg',
     imageAlt: 'Olive drab green insulated bottle with flared screw lid and flat top.',
@@ -121,7 +121,7 @@ const products = [
   {
     id: 3,
     name: 'Focus Paper Refill',
-    href: '#',
+    href: 'categories/product7',
     price: '$89',
     imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg',
     imageAlt: 'Person using a pen to cross a task off a productivity paper card.',
@@ -129,7 +129,7 @@ const products = [
   {
     id: 4,
     name: 'Machined Mechanical Pencil',
-    href: '#',
+    href: 'categories/product8',
     price: '$35',
     imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg',
     imageAlt: 'Hand holding black machined steel mechanical pencil with brass tip and top.',
@@ -137,7 +137,7 @@ const products = [
   {
     id: 1,
     name: 'Earthen Bottle',
-    href: '#',
+    href: 'categories/product9',
     price: '$48',
     imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg',
     imageAlt: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
@@ -145,7 +145,7 @@ const products = [
   {
     id: 2,
     name: 'Nomad Tumbler',
-    href: '#',
+    href: 'categories/product10',
     price: '$35',
     imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg',
     imageAlt: 'Olive drab green insulated bottle with flared screw lid and flat top.',
@@ -153,7 +153,7 @@ const products = [
   {
     id: 3,
     name: 'Focus Paper Refill',
-    href: '#',
+    href: 'categories/product11',
     price: '$89',
     imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg',
     imageAlt: 'Person using a pen to cross a task off a productivity paper card.',
@@ -161,7 +161,7 @@ const products = [
   {
     id: 4,
     name: 'Machined Mechanical Pencil',
-    href: '#',
+    href: 'categories/product12',
     price: '$35',
     imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg',
     imageAlt: 'Hand holding black machined steel mechanical pencil with brass tip and top.',
@@ -169,7 +169,7 @@ const products = [
   {
     id: 1,
     name: 'Earthen Bottle',
-    href: '#',
+    href: 'categories/product13',
     price: '$48',
     imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg',
     imageAlt: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
@@ -177,7 +177,7 @@ const products = [
   {
     id: 2,
     name: 'Nomad Tumbler',
-    href: '#',
+    href: 'categories/product14',
     price: '$35',
     imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg',
     imageAlt: 'Olive drab green insulated bottle with flared screw lid and flat top.',
@@ -185,7 +185,7 @@ const products = [
   {
     id: 3,
     name: 'Focus Paper Refill',
-    href: '#',
+    href: 'categories/product15',
     price: '$89',
     imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg',
     imageAlt: 'Person using a pen to cross a task off a productivity paper card.',
@@ -193,7 +193,7 @@ const products = [
   {
     id: 4,
     name: 'Machined Mechanical Pencil',
-    href: '#',
+    href: 'categories/product16',
     price: '$35',
     imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg',
     imageAlt: 'Hand holding black machined steel mechanical pencil with brass tip and top.',
@@ -289,7 +289,7 @@ export default function ProductsPreview(props) {
         <main>
           <div className="bg-white">
             <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-              <h1 className="text-4xl font-bold tracking-tight text-[#c19434] text-center">Workspace sale</h1>
+              <h1 className="pt-12 text-4xl font-bold tracking-tight text-[#c19434] text-center">Workspace sale</h1>
               <p className="mx-auto mt-4 max-w-4xl text-base text-gray-500">
                 Our thoughtfully designed workspace objects are crafted in limited runs. Improve your productivity and
                 organization with these sale items before we run out.

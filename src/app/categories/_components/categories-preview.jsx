@@ -181,7 +181,7 @@ export default function CategoriesPreviews() {
         <main>
           <div className="mx-auto  px-4 sm:px-6 lg:max-w-7xl lg:px-8">
             <div className="py-24 text-center">
-              <h1 className="text-4xl font-bold tracking-tight text-[#c19434]">New Collections</h1>
+              <h1 className="text-4xl font-bold tracking-tight text-[#c19434] pt-6">New Collections</h1>
               <p className="mx-auto mt-4 max-w-3xl text-base text-gray-500">
               Explore Thoughtfully Designed Handmade Paintings for Your Workspace and Home.
               </p>

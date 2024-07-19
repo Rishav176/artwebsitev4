@@ -19,7 +19,7 @@ export default function Home() {
       <Featured />
       <PromoSection />
       
-     <Products_Featured />
+      <Products_Featured />
       <FAQ />
       
       
