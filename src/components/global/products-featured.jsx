@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import Button from '../ui/button';
 import { getProducts } from '@/lib/constant';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Products_Featured() {
   const [products, setProducts] = useState(null);
@@ -54,9 +55,10 @@ export default function Products_Featured() {
                     <div className="group relative">
                       <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200">
            
-                        <img
+                        <Image
                           src={image.url}
                           alt=''
+                          fill
                           className="h-full w-full object-cover object-center  group-hover:scale-125 transition-all duration-300 ease-in-out"
                         />
                        
