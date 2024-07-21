@@ -18,6 +18,7 @@ import {
 } from '@headlessui/react'
 import { Bars3Icon, MagnifyingGlassIcon, ShoppingCartIcon, UserIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
+import { usePathname } from 'next/navigation'
 
 const breadcrumbs = [
   { id: 1, name: 'Objects', href: '#' },
@@ -73,7 +74,7 @@ const products = [
   {
     id: 1,
     name: 'Earthen Bottle',
-    href: 'categories/product1',
+    href: `/product1`,
     price: '$48',
     imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg',
     imageAlt: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
@@ -81,7 +82,7 @@ const products = [
   {
     id: 2,
     name: 'Nomad Tumbler',
-    href: 'categories/product2',
+    href: '/product2',
     price: '$35',
     imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg',
     imageAlt: 'Olive drab green insulated bottle with flared screw lid and flat top.',
@@ -89,7 +90,7 @@ const products = [
   {
     id: 3,
     name: 'Focus Paper Refill',
-    href: 'categories/product3',
+    href: '/product3',
     price: '$89',
     imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg',
     imageAlt: 'Person using a pen to cross a task off a productivity paper card.',
@@ -97,7 +98,7 @@ const products = [
   {
     id: 4,
     name: 'Machined Mechanical Pencil',
-    href: 'categories/product4',
+    href: '/product4',
     price: '$35',
     imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg',
     imageAlt: 'Hand holding black machined steel mechanical pencil with brass tip and top.',
@@ -105,7 +106,7 @@ const products = [
   {
     id: 1,
     name: 'Earthen Bottle',
-    href: 'categories/product5',
+    href: '/product5',
     price: '$48',
     imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg',
     imageAlt: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
@@ -113,7 +114,7 @@ const products = [
   {
     id: 2,
     name: 'Nomad Tumbler',
-    href: 'categories/product6',
+    href: '/product6',
     price: '$35',
     imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg',
     imageAlt: 'Olive drab green insulated bottle with flared screw lid and flat top.',
@@ -121,7 +122,7 @@ const products = [
   {
     id: 3,
     name: 'Focus Paper Refill',
-    href: 'categories/product7',
+    href: '/product7',
     price: '$89',
     imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg',
     imageAlt: 'Person using a pen to cross a task off a productivity paper card.',
@@ -129,7 +130,7 @@ const products = [
   {
     id: 4,
     name: 'Machined Mechanical Pencil',
-    href: 'categories/product8',
+    href: '/product8',
     price: '$35',
     imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg',
     imageAlt: 'Hand holding black machined steel mechanical pencil with brass tip and top.',
@@ -137,7 +138,7 @@ const products = [
   {
     id: 1,
     name: 'Earthen Bottle',
-    href: 'categories/product9',
+    href: '/product9',
     price: '$48',
     imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg',
     imageAlt: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
@@ -145,7 +146,7 @@ const products = [
   {
     id: 2,
     name: 'Nomad Tumbler',
-    href: 'categories/product10',
+    href: '/product10',
     price: '$35',
     imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg',
     imageAlt: 'Olive drab green insulated bottle with flared screw lid and flat top.',
@@ -153,7 +154,7 @@ const products = [
   {
     id: 3,
     name: 'Focus Paper Refill',
-    href: 'categories/product11',
+    href: '/product11',
     price: '$89',
     imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg',
     imageAlt: 'Person using a pen to cross a task off a productivity paper card.',
@@ -161,7 +162,7 @@ const products = [
   {
     id: 4,
     name: 'Machined Mechanical Pencil',
-    href: 'categories/product12',
+    href: '/product12',
     price: '$35',
     imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg',
     imageAlt: 'Hand holding black machined steel mechanical pencil with brass tip and top.',
@@ -169,7 +170,7 @@ const products = [
   {
     id: 1,
     name: 'Earthen Bottle',
-    href: 'categories/product13',
+    href: '/product13',
     price: '$48',
     imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg',
     imageAlt: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
@@ -177,7 +178,7 @@ const products = [
   {
     id: 2,
     name: 'Nomad Tumbler',
-    href: 'categories/product14',
+    href: '/product14',
     price: '$35',
     imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg',
     imageAlt: 'Olive drab green insulated bottle with flared screw lid and flat top.',
@@ -185,7 +186,7 @@ const products = [
   {
     id: 3,
     name: 'Focus Paper Refill',
-    href: 'categories/product15',
+    href: '/product15',
     price: '$89',
     imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg',
     imageAlt: 'Person using a pen to cross a task off a productivity paper card.',
@@ -193,7 +194,7 @@ const products = [
   {
     id: 4,
     name: 'Machined Mechanical Pencil',
-    href: 'categories/product16',
+    href: '/product16',
     price: '$35',
     imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg',
     imageAlt: 'Hand holding black machined steel mechanical pencil with brass tip and top.',
@@ -209,7 +210,7 @@ function classNames(...classes) {
 export default function ProductsPreview(props) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
-
+  const path = usePathname()
   return (
     <div className="bg-gray-50">
 
@@ -325,7 +326,7 @@ export default function ProductsPreview(props) {
                         <MenuItem key={option.name}>
                           {({ focus }) => (
                             <a
-                              href={option.href}
+                              href={path+product.href}
                               className={classNames(
                                 option.current ? 'font-medium text-gray-900' : 'text-gray-500',
                                 focus ? 'bg-gray-100' : '',
@@ -446,7 +447,7 @@ export default function ProductsPreview(props) {
 
             <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
               {products.map((product) => (
-                <a key={product.id} href={product.href} className="group">
+                <a key={product.id} href={path+product.href} className="group">
                   <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
                     <img
                       src={product.imageSrc}
