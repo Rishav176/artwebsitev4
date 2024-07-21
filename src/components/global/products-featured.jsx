@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import Button from '../ui/button';
 import { getProducts } from '@/lib/constant';
+import Link from 'next/link';
 
 export default function Products_Featured() {
   const [products, setProducts] = useState(null);
@@ -52,19 +53,21 @@ export default function Products_Featured() {
                   <li key={product.handle} className="inline-flex w-64 flex-col text-center lg:w-auto pb-6">
                     <div className="group relative">
                       <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200">
+           
                         <img
                           src={image.url}
                           alt=''
                           className="h-full w-full object-cover object-center  group-hover:scale-125 transition-all duration-300 ease-in-out"
                         />
+                       
                       </div>
                       <div className="mt-6">
                         <p className="text-sm text-gray-500"></p>
                         <h3 className="mt-1 font-semibold text-gray-900">
-                          <a href='/'>
+                        <Link href={`/categories/product/${product.handle}`}>
                             <span className="absolute inset-0" />
                             {product.title}
-                          </a>
+                          </Link>
                         </h3>
                         <p className="mt-1 text-gray-900">${product.priceRange.minVariantPrice.amount}</p>
                       </div>
@@ -72,7 +75,9 @@ export default function Products_Featured() {
   
                     <h4 className="sr-only">Available colors</h4>
                     <ul role="list" className="mt-auto flex items-center justify-center space-x-3 pt-6">
+                      <Link href={`/categories/product/${product.handle}`}>
                       <Button>Purchase</Button>
+                      </Link>
                     </ul>
                   </li>
                 )})}
@@ -92,10 +97,5 @@ export default function Products_Featured() {
   }
 
  
-  // export async function getStaticProps() {
-    //   const initial = await storefront(productsQuery)
-    //   const products= initial.data.products.edges
-    //   return products
-    // }
-    
+  
  
