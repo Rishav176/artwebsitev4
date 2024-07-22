@@ -1,7 +1,7 @@
 'use client'
 import { useParams, usePathname } from "next/navigation";
 import ProductsPreview from "../_components/products-preview";
-import ProductsOverview from "../_components/products-overview";
+import ProductsOverview from "../_components/products-overview2";
 
 export default function Home() {
     const params = useParams();
