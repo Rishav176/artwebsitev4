@@ -47,7 +47,26 @@ query SingleProduct($handle: String!){
         }
       }
     }
+      variants(first:1){
+      edges{
+        node{
+        id
+        }
+      }}
   }
+}
+`
+const CheckoutQuery = `
+mutation CheckoutCreate($variantId: ID!) {
+checkoutCreate(input: {
+lineItems:{
+variantId: $variantId,
+quantity:1
+}
+}){
+checkout{
+webUrl
+}}
 }
 `
 export async function getSingleProduct(handle: string) {
