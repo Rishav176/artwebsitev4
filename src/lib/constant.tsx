@@ -47,26 +47,28 @@ query SingleProduct($handle: String!){
         }
       }
     }
-      variants(first:1){
+    variants(first:1){
       edges{
         node{
-        id
+          id
         }
-      }}
+      }
+    }
   }
 }
 `
-const CheckoutQuery = `
+export const CheckoutQuery = `
 mutation CheckoutCreate($variantId: ID!) {
-checkoutCreate(input: {
-lineItems:{
-variantId: $variantId,
-quantity:1
-}
-}){
-checkout{
-webUrl
-}}
+  cartCreate(input:{
+    lines:{
+      merchandiseId: $variantId,
+      quantity:1
+    }
+  }) {
+    cart{
+      checkoutUrl
+    }
+  }
 }
 `
 export async function getSingleProduct(handle: string) {

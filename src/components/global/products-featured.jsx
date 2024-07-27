@@ -4,7 +4,7 @@ import Button from '../ui/button';
 import { getProducts } from '@/lib/constant';
 import Link from 'next/link';
 import Image from 'next/image';
-
+import { CheckoutQuery } from '@/lib/constant';
 export default function Products_Featured() {
   const [products, setProducts] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -27,9 +27,9 @@ export default function Products_Featured() {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error fetching products: {error.message}</p>;
   if (!products || !products.edges) return <p>No products available</p>;
-
   const extractedProducts = products.edges;
-    
+  //const variantId= products.variants.edges[0].node.id;
+  
     return (
       <div className="bg-white">
         <div className="py-16 sm:py-24 lg:mx-auto lg:max-w-screen-2xl lg:px-8">
@@ -78,7 +78,7 @@ export default function Products_Featured() {
                     <h4 className="sr-only">Available colors</h4>
                     <ul role="list" className="mt-auto flex items-center justify-center space-x-3 pt-6">
                       <Link href={`/categories/product/${product.handle}`}>
-                      <Button>Purchase</Button>
+                      <Button >Purchase</Button>
                       </Link>
                     </ul>
                   </li>

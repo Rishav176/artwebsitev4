@@ -83,7 +83,14 @@ export default function ProductsOverview({name}) {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error fetching products: {error.message}</p>;
   if (!products ) return <p>No products available</p>;
-
+  
+  async function checkout(){
+    setIsLoading(true)
+    const {data} = await storefront(CheckoutQuery, {variantId})
+    const {webUrl}= data.cartCreate.cart
+    window.location.href= webUrl
+    setIsLoading(false)
+  }
   return (
     <div className="bg-white mt-10 pt-10">
     <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
