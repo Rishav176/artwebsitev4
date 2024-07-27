@@ -55,14 +55,11 @@ export default function Example() {
                     Discover unique, handcrafted paintings made with passion and skill. Explore our collection and find the perfect piece to add beauty and individuality to your space.
                   </p>
                   <div className="mt-10 flex items-center gap-x-6">
-                    <a
-                      href="#"
-                      className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  <a
+                      href="/categories"
+                      className="rounded-md bg-[#c19434] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#c19434] hover:opacity-90 hover:border-[#c19434]"
                     >
-                      Get started
-                    </a>
-                    <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-                      Live demo <span aria-hidden="true">→</span>
+                      Explore Collections
                     </a>
                   </div>
                 </div>
