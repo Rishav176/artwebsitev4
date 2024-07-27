@@ -15,8 +15,10 @@ import {
 } from '@headlessui/react'
 import { StarIcon } from '@heroicons/react/20/solid'
 import { HeartIcon, MinusIcon, PlusIcon } from '@heroicons/react/24/outline'
-import { getSingleProduct } from '@/lib/constant'
+import { CheckoutQuery, getSingleProduct } from '@/lib/constant'
 import Image from 'next/image'
+import { storefront } from '@/utils'
+
 const product = {
   name: 'Zip Tote Basket',
   price: '$140',
@@ -59,77 +61,82 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function ProductsOverview({name}) {
+export default function ProductsOverview({ name }) {
   const [selectedColor, setSelectedColor] = useState(product.colors[0])
-  const [products, setProducts] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [products, setProducts] = useState(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
 
   useEffect(() => {
     async function fetchProducts() {
       try {
-        const data = await getSingleProduct(name);
+        const data = await getSingleProduct(name)
         console.log(data)
-        setProducts(data);
+        setProducts(data)
       } catch (error) {
-        setError(error);
+        setError(error)
       } finally {
-        setLoading(false);
+        setLoading(false)
       }
     }
-    fetchProducts();
-  }, [name]);
-  console.log(products)
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error fetching products: {error.message}</p>;
-  if (!products ) return <p>No products available</p>;
+    fetchProducts()
+  }, [name])
   
-  async function checkout(){
-    setIsLoading(true)
-    const {data} = await storefront(CheckoutQuery, {variantId})
-    const {webUrl}= data.cartCreate.cart
-    window.location.href= webUrl
-    setIsLoading(false)
+  const variantId = products?.variants.edges[0].node.id
+  console.log(variantId)
+  async function checkout(event) {
+    event.preventDefault() 
+    setLoading(true)
+    const { data } = await storefront(CheckoutQuery, { variantId })
+    console.log(data)
+    const { checkoutUrl } = data.cartCreate.cart
+    window.location.href = checkoutUrl
+    setLoading(false)
   }
+
+  if (loading) return <p>Loading...</p>
+  if (error) return <p>Error fetching products: {error.message}</p>
+  if (!products) return <p>No products available</p>
+
   return (
     <div className="bg-white mt-10 pt-10">
-    <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-      <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
-        {/* Image gallery */}
-        <TabGroup className="flex flex-col-reverse">
-          {/* Image selector */}
-          <div className="mx-auto mt-6 w-full max-w-2xl lg:max-w-none">
-            <TabList className="grid grid-cols-4 gap-6 sm:grid-cols-4">
-              {products.images.edges.map((image) => (
-                <Tab
-                  key={image.node.url}
-                  className="group relative flex h-24 cursor-pointer items-center justify-center rounded-md bg-white text-sm font-medium uppercase text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring focus:ring-opacity-50 focus:ring-offset-4"
-                >
-                  <span className="sr-only">{image.name}</span>
-                  <span className="absolute inset-0 overflow-hidden rounded-md">
-                    <img alt={products.title} src={image.node.url} className="h-full w-full object-cover object-center" />
-                  </span>
-                  <span
-                    aria-hidden="true"
-                    className="pointer-events-none absolute inset-0 rounded-md ring-2 ring-transparent ring-offset-2 group-data-[selected]:ring-indigo-500"
-                  />
-                </Tab>
-              ))}
-            </TabList>
-          </div>
+      <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+        <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
+          {/* Image gallery */}
+          <TabGroup className="flex flex-col-reverse">
+            {/* Image selector */}
+            <div className="mx-auto mt-6 w-full max-w-2xl lg:max-w-none">
+              <TabList className="grid grid-cols-4 gap-6 sm:grid-cols-4">
+                {products.images.edges.map((image) => (
+                  <Tab
+                    key={image.node.url}
+                    className="group relative flex h-24 cursor-pointer items-center justify-center rounded-md bg-white text-sm font-medium uppercase text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring focus:ring-opacity-50 focus:ring-offset-4"
+                  >
+                    <span className="sr-only">{image.name}</span>
+                    <span className="absolute inset-0 overflow-hidden rounded-md">
+                      <img alt={products.title} src={image.node.url} className="h-full w-full object-cover object-center" />
+                    </span>
+                    <span
+                      aria-hidden="true"
+                      className="pointer-events-none absolute inset-0 rounded-md ring-2 ring-transparent ring-offset-2 group-data-[selected]:ring-indigo-500"
+                    />
+                  </Tab>
+                ))}
+              </TabList>
+            </div>
 
-          <TabPanels className="aspect-h-1 aspect-w-1 w-full">
-            {products.images.edges.map((image) => (
-              <TabPanel key={image.id}>
-                <img
-                  alt={products.title}
-                  src={image.node.url}
-                  className="h-full w-full object-cover object-center sm:rounded-lg"
-                />
-              </TabPanel>
-            ))}
-          </TabPanels>
-        </TabGroup>
+            <TabPanels className="aspect-h-1 aspect-w-1 w-full">
+              {products.images.edges.map((image) => (
+                <TabPanel key={image.id}>
+                  <img
+                    alt={products.title}
+                    src={image.node.url}
+                    className="h-full w-full object-cover object-center sm:rounded-lg"
+                  />
+                </TabPanel>
+              ))}
+            </TabPanels>
+          </TabGroup>
 
           {/* Product info */}
           <div className="mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0">
@@ -169,7 +176,7 @@ export default function ProductsOverview({name}) {
               />
             </div>
 
-            <form className="mt-6">
+            <form className="mt-6" onSubmit={checkout}>
               {/* Colors */}
               <div>
                 <h3 className="text-sm font-medium text-gray-600">Color</h3>
@@ -204,7 +211,7 @@ export default function ProductsOverview({name}) {
                   type="submit"
                   className="flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full"
                 >
-                  Add to bag
+                  Purchase
                 </button>
 
                 <button

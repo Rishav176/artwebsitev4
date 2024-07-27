@@ -28,7 +28,7 @@ export default function Products_Featured() {
   if (error) return <p>Error fetching products: {error.message}</p>;
   if (!products || !products.edges) return <p>No products available</p>;
   const extractedProducts = products.edges;
-  //const variantId= products.variants.edges[0].node.id;
+  
   
     return (
       <div className="bg-white">
