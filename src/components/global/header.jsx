@@ -58,11 +58,12 @@ export default function Header() {
           <div className="flex items-center justify-between">
             <Link href="/" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
-              <img
+              <h2>RituHandmadeArts</h2>
+              {/* <img
                 alt=""
                 src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
                 className="h-8 w-auto"
-              />
+              /> */}
             </Link>
             <button
               type="button"
@@ -87,12 +88,12 @@ export default function Header() {
                 ))}
               </div>
               <div className="py-6">
-                <Link
+                {/* <Link
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   Log in
-                </Link>
+                </Link> */}
               </div>
             </div>
           </div>
