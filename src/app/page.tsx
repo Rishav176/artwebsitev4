@@ -1,5 +1,5 @@
 
-import   HeroParallax  from "../components/ui/hero-parallax";
+import   HeroParallax  from "../components/ui/hero-parallax2";
 
 import Featured from "@/components/global/featured";
 import Products_Featured from "@/components/global/products-featured";
