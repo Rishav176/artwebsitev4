@@ -326,7 +326,7 @@ export default function ProductsPreview(props) {
                         <MenuItem key={option.name}>
                           {({ focus }) => (
                             <a
-                              href={path+product.href}
+                              href={path+products.href}
                               className={classNames(
                                 option.current ? 'font-medium text-gray-900' : 'text-gray-500',
                                 focus ? 'bg-gray-100' : '',
