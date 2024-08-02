@@ -49,7 +49,7 @@ export default function FAQ() {
               className="h-full w-full object-cover object-center"
             />
           </div>
-          <h2 id="faq1" className="text-center font-bold text-3xl tracking-tight text-[#c19434] sm:text-2xl">
+          <h2 id="faq1" className="text-center pt-5 font-bold text-3xl tracking-tight text-[#c19434] sm:text-2xl">
             The Fine Details
           </h2>
           <p className="mt-2 text-base text-gray-500">
@@ -65,7 +65,7 @@ export default function FAQ() {
               className="h-full w-full object-cover object-center"
             />
           </div>
-          <h2 id="faq2" className="text-center font-bold text-3xl tracking-tight text-[#c19434] sm:text-2xl">
+          <h2 id="faq2" className="text-center font-bold text-3xl pt-5 tracking-tight text-[#c19434] sm:text-2xl">
             Quality and Craftsmanship
           </h2>
           <p className="mt-2 text-base text-gray-500">
