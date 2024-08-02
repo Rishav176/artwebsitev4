@@ -69,7 +69,7 @@ export default function Example() {
                   </p>
                   <div className="mt-10 flex items-center gap-x-6">
                     
-                    <a href="/categories" className="text-sm font-semibold leading-6 text-gray-900">
+                    <a href="/categories" className="text-sm font-semibold leading-6 text-[#c19434]">
                       Explore <span aria-hidden="true">→</span>
                     </a>
                   </div>

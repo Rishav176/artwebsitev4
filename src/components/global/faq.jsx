@@ -44,7 +44,7 @@ export default function FAQ() {
         <div>
           <div className="aspect-h-2 aspect-w-3 w-full overflow-hidden rounded-lg">
             <img
-              src="https://tailwindui.com/img/ecommerce-images/product-page-04-detail-product-shot-01.jpg"
+              src="faq1.jpg"
               alt="Drawstring top with elastic loop closure and textured interior padding."
               className="h-full w-full object-cover object-center"
             />
@@ -60,7 +60,7 @@ export default function FAQ() {
         <div>
           <div className="aspect-h-2 aspect-w-3 w-full overflow-hidden rounded-lg">
             <img
-              src="https://tailwindui.com/img/ecommerce-images/product-page-04-detail-product-shot-02.jpg"
+              src="faq2.jpg"
               alt="Front zipper pouch with included key ring."
               className="h-full w-full object-cover object-center"
             />
