@@ -149,10 +149,10 @@ export default function ProductsOverview({ name }) {
 
             {/* Reviews */}
             <div className="mt-3">
-              <h3 className="sr-only">Reviews</h3>
+              {/* <h3 className="sr-only">Reviews</h3> */}
               <div className="flex items-center">
                 <div className="flex items-center">
-                  {[0, 1, 2, 3, 4].map((rating) => (
+                  {/* {[0, 1, 2, 3, 4].map((rating) => (
                     <StarIcon
                       key={rating}
                       aria-hidden="true"
@@ -161,7 +161,7 @@ export default function ProductsOverview({ name }) {
                         'h-5 w-5 flex-shrink-0',
                       )}
                     />
-                  ))}
+                  ))} */}
                 </div>
                 <p className="sr-only">{product.rating} out of 5 stars</p>
               </div>
@@ -179,10 +179,10 @@ export default function ProductsOverview({ name }) {
             <form className="mt-6" onSubmit={checkout}>
               {/* Colors */}
               <div>
-                <h3 className="text-sm font-medium text-gray-600">Color</h3>
+                {/* <h3 className="text-sm font-medium text-gray-600">Color</h3> */}
 
                 <fieldset aria-label="Choose a color" className="mt-2">
-                  <RadioGroup value={selectedColor} onChange={setSelectedColor} className="flex items-center space-x-3">
+                  {/* <RadioGroup value={selectedColor} onChange={setSelectedColor} className="flex items-center space-x-3">
                     {product.colors.map((color) => (
                       <Radio
                         key={color.name}
@@ -202,7 +202,7 @@ export default function ProductsOverview({ name }) {
                         />
                       </Radio>
                     ))}
-                  </RadioGroup>
+                  </RadioGroup> */}
                 </fieldset>
               </div>
 
@@ -230,7 +230,7 @@ export default function ProductsOverview({ name }) {
               </h2>
 
               <div className="divide-y divide-gray-200 border-t">
-                {product.details.map((detail) => (
+                {/* {product.details.map((detail) => (
                   <Disclosure key={detail.name} as="div">
                     <h3>
                       <DisclosureButton className="group relative flex w-full items-center justify-between py-6 text-left">
@@ -257,7 +257,7 @@ export default function ProductsOverview({ name }) {
                       </ul>
                     </DisclosurePanel>
                   </Disclosure>
-                ))}
+                ))} */}
               </div>
             </section>
           </div>
