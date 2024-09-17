@@ -1,5 +1,5 @@
-"use client"
-import { Fragment, useState } from 'react'
+"use client";
+import { Fragment, useState } from "react";
 import {
   Dialog,
   DialogBackdrop,
@@ -15,208 +15,249 @@ import {
   PopoverButton,
   PopoverGroup,
   PopoverPanel,
-} from '@headlessui/react'
-import { Bars3Icon, MagnifyingGlassIcon, ShoppingCartIcon, UserIcon, XMarkIcon } from '@heroicons/react/24/outline'
-import { ChevronDownIcon } from '@heroicons/react/20/solid'
-import { usePathname } from 'next/navigation'
+} from "@headlessui/react";
+import {
+  Bars3Icon,
+  MagnifyingGlassIcon,
+  ShoppingCartIcon,
+  UserIcon,
+  XMarkIcon,
+} from "@heroicons/react/24/outline";
+import { ChevronDownIcon } from "@heroicons/react/20/solid";
+import { usePathname } from "next/navigation";
 
 const breadcrumbs = [
-  { id: 1, name: 'Objects', href: '#' },
-  { id: 2, name: 'Workspace', href: '#' },
-  { id: 3, name: 'Sale', href: '#' },
-]
+  { id: 1, name: "Objects", href: "#" },
+  { id: 2, name: "Workspace", href: "#" },
+  { id: 3, name: "Sale", href: "#" },
+];
 const sortOptions = [
-  { name: 'Most Popular', href: '#', current: true },
-  { name: 'Best Rating', href: '#', current: false },
-  { name: 'Newest', href: '#', current: false },
-  { name: 'Price: Low to High', href: '#', current: false },
-  { name: 'Price: High to Low', href: '#', current: false },
-]
+  { name: "Most Popular", href: "#", current: true },
+  { name: "Best Rating", href: "#", current: false },
+  { name: "Newest", href: "#", current: false },
+  { name: "Price: Low to High", href: "#", current: false },
+  { name: "Price: High to Low", href: "#", current: false },
+];
 const filters = [
   {
-    id: 'category',
-    name: 'Category',
+    id: "category",
+    name: "Category",
     options: [
-      { value: 'new-arrivals', label: 'All New Arrivals', checked: false },
-      { value: 'tees', label: 'Tees', checked: false },
-      { value: 'objects', label: 'Objects', checked: true },
-      { value: 'sweatshirts', label: 'Sweatshirts', checked: false },
-      { value: 'pants-shorts', label: 'Pants & Shorts', checked: false },
+      { value: "new-arrivals", label: "All New Arrivals", checked: false },
+      { value: "tees", label: "Tees", checked: false },
+      { value: "objects", label: "Objects", checked: true },
+      { value: "sweatshirts", label: "Sweatshirts", checked: false },
+      { value: "pants-shorts", label: "Pants & Shorts", checked: false },
     ],
   },
   {
-    id: 'color',
-    name: 'Color',
+    id: "color",
+    name: "Color",
     options: [
-      { value: 'white', label: 'White', checked: false },
-      { value: 'beige', label: 'Beige', checked: false },
-      { value: 'blue', label: 'Blue', checked: false },
-      { value: 'brown', label: 'Brown', checked: false },
-      { value: 'green', label: 'Green', checked: false },
-      { value: 'purple', label: 'Purple', checked: false },
+      { value: "white", label: "White", checked: false },
+      { value: "beige", label: "Beige", checked: false },
+      { value: "blue", label: "Blue", checked: false },
+      { value: "brown", label: "Brown", checked: false },
+      { value: "green", label: "Green", checked: false },
+      { value: "purple", label: "Purple", checked: false },
     ],
   },
   {
-    id: 'sizes',
-    name: 'Sizes',
+    id: "sizes",
+    name: "Sizes",
     options: [
-      { value: 'xs', label: 'XS', checked: false },
-      { value: 's', label: 'S', checked: false },
-      { value: 'm', label: 'M', checked: false },
-      { value: 'l', label: 'L', checked: false },
-      { value: 'xl', label: 'XL', checked: false },
-      { value: '2xl', label: '2XL', checked: false },
+      { value: "xs", label: "XS", checked: false },
+      { value: "s", label: "S", checked: false },
+      { value: "m", label: "M", checked: false },
+      { value: "l", label: "L", checked: false },
+      { value: "xl", label: "XL", checked: false },
+      { value: "2xl", label: "2XL", checked: false },
     ],
   },
-]
-const activeFilters = [{ value: 'objects', label: 'Objects' }]
+];
+const activeFilters = [{ value: "objects", label: "Objects" }];
 const products = [
   {
     id: 1,
-    name: 'Earthen Bottle',
+    name: "Earthen Bottle",
     href: `/product1`,
-    price: '$48',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg',
-    imageAlt: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
+    price: "$48",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg",
+    imageAlt:
+      "Tall slender porcelain bottle with natural clay textured body and cork stopper.",
   },
   {
     id: 2,
-    name: 'Nomad Tumbler',
-    href: '/product2',
-    price: '$35',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg',
-    imageAlt: 'Olive drab green insulated bottle with flared screw lid and flat top.',
+    name: "Nomad Tumbler",
+    href: "/product2",
+    price: "$35",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg",
+    imageAlt:
+      "Olive drab green insulated bottle with flared screw lid and flat top.",
   },
   {
     id: 3,
-    name: 'Focus Paper Refill',
-    href: '/product3',
-    price: '$89',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg',
-    imageAlt: 'Person using a pen to cross a task off a productivity paper card.',
+    name: "Focus Paper Refill",
+    href: "/product3",
+    price: "$89",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg",
+    imageAlt:
+      "Person using a pen to cross a task off a productivity paper card.",
   },
   {
     id: 4,
-    name: 'Machined Mechanical Pencil',
-    href: '/product4',
-    price: '$35',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg',
-    imageAlt: 'Hand holding black machined steel mechanical pencil with brass tip and top.',
+    name: "Machined Mechanical Pencil",
+    href: "/product4",
+    price: "$35",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg",
+    imageAlt:
+      "Hand holding black machined steel mechanical pencil with brass tip and top.",
   },
   {
     id: 1,
-    name: 'Earthen Bottle',
-    href: '/product5',
-    price: '$48',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg',
-    imageAlt: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
+    name: "Earthen Bottle",
+    href: "/product5",
+    price: "$48",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg",
+    imageAlt:
+      "Tall slender porcelain bottle with natural clay textured body and cork stopper.",
   },
   {
     id: 2,
-    name: 'Nomad Tumbler',
-    href: '/product6',
-    price: '$35',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg',
-    imageAlt: 'Olive drab green insulated bottle with flared screw lid and flat top.',
+    name: "Nomad Tumbler",
+    href: "/product6",
+    price: "$35",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg",
+    imageAlt:
+      "Olive drab green insulated bottle with flared screw lid and flat top.",
   },
   {
     id: 3,
-    name: 'Focus Paper Refill',
-    href: '/product7',
-    price: '$89',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg',
-    imageAlt: 'Person using a pen to cross a task off a productivity paper card.',
+    name: "Focus Paper Refill",
+    href: "/product7",
+    price: "$89",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg",
+    imageAlt:
+      "Person using a pen to cross a task off a productivity paper card.",
   },
   {
     id: 4,
-    name: 'Machined Mechanical Pencil',
-    href: '/product8',
-    price: '$35',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg',
-    imageAlt: 'Hand holding black machined steel mechanical pencil with brass tip and top.',
+    name: "Machined Mechanical Pencil",
+    href: "/product8",
+    price: "$35",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg",
+    imageAlt:
+      "Hand holding black machined steel mechanical pencil with brass tip and top.",
   },
   {
     id: 1,
-    name: 'Earthen Bottle',
-    href: '/product9',
-    price: '$48',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg',
-    imageAlt: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
+    name: "Earthen Bottle",
+    href: "/product9",
+    price: "$48",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg",
+    imageAlt:
+      "Tall slender porcelain bottle with natural clay textured body and cork stopper.",
   },
   {
     id: 2,
-    name: 'Nomad Tumbler',
-    href: '/product10',
-    price: '$35',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg',
-    imageAlt: 'Olive drab green insulated bottle with flared screw lid and flat top.',
+    name: "Nomad Tumbler",
+    href: "/product10",
+    price: "$35",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg",
+    imageAlt:
+      "Olive drab green insulated bottle with flared screw lid and flat top.",
   },
   {
     id: 3,
-    name: 'Focus Paper Refill',
-    href: '/product11',
-    price: '$89',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg',
-    imageAlt: 'Person using a pen to cross a task off a productivity paper card.',
+    name: "Focus Paper Refill",
+    href: "/product11",
+    price: "$89",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg",
+    imageAlt:
+      "Person using a pen to cross a task off a productivity paper card.",
   },
   {
     id: 4,
-    name: 'Machined Mechanical Pencil',
-    href: '/product12',
-    price: '$35',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg',
-    imageAlt: 'Hand holding black machined steel mechanical pencil with brass tip and top.',
+    name: "Machined Mechanical Pencil",
+    href: "/product12",
+    price: "$35",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg",
+    imageAlt:
+      "Hand holding black machined steel mechanical pencil with brass tip and top.",
   },
   {
     id: 1,
-    name: 'Earthen Bottle',
-    href: '/product13',
-    price: '$48',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg',
-    imageAlt: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
+    name: "Earthen Bottle",
+    href: "/product13",
+    price: "$48",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg",
+    imageAlt:
+      "Tall slender porcelain bottle with natural clay textured body and cork stopper.",
   },
   {
     id: 2,
-    name: 'Nomad Tumbler',
-    href: '/product14',
-    price: '$35',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg',
-    imageAlt: 'Olive drab green insulated bottle with flared screw lid and flat top.',
+    name: "Nomad Tumbler",
+    href: "/product14",
+    price: "$35",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg",
+    imageAlt:
+      "Olive drab green insulated bottle with flared screw lid and flat top.",
   },
   {
     id: 3,
-    name: 'Focus Paper Refill',
-    href: '/product15',
-    price: '$89',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg',
-    imageAlt: 'Person using a pen to cross a task off a productivity paper card.',
+    name: "Focus Paper Refill",
+    href: "/product15",
+    price: "$89",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg",
+    imageAlt:
+      "Person using a pen to cross a task off a productivity paper card.",
   },
   {
     id: 4,
-    name: 'Machined Mechanical Pencil',
-    href: '/product16',
-    price: '$35',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg',
-    imageAlt: 'Hand holding black machined steel mechanical pencil with brass tip and top.',
+    name: "Machined Mechanical Pencil",
+    href: "/product16",
+    price: "$35",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg",
+    imageAlt:
+      "Hand holding black machined steel mechanical pencil with brass tip and top.",
   },
-  
+
   // More products...
-]
+];
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ");
 }
 
 export default function ProductsPreview(props) {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
-  const path = usePathname()
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+  const path = usePathname();
   return (
     <div className="bg-gray-50">
-
       <div>
         {/* Mobile filter dialog */}
-        <Dialog className="relative z-40 sm:hidden" open={mobileFiltersOpen} onClose={setMobileFiltersOpen}>
+        <Dialog
+          className="relative z-40 sm:hidden"
+          open={mobileFiltersOpen}
+          onClose={setMobileFiltersOpen}
+        >
           <DialogBackdrop
             transition
             className="fixed inset-0 bg-black bg-opacity-25 transition-opacity duration-300 ease-linear data-[closed]:opacity-0"
@@ -242,15 +283,24 @@ export default function ProductsPreview(props) {
               {/* Filters */}
               <form className="mt-4">
                 {filters.map((section) => (
-                  <Disclosure as="div" key={section.name} className="border-t border-gray-200 px-4 py-6">
+                  <Disclosure
+                    as="div"
+                    key={section.name}
+                    className="border-t border-gray-200 px-4 py-6"
+                  >
                     {({ open }) => (
                       <>
                         <h3 className="-mx-2 -my-3 flow-root">
                           <DisclosureButton className="flex w-full items-center justify-between bg-white px-2 py-3 text-sm text-gray-400">
-                            <span className="font-medium text-gray-900">{section.name}</span>
+                            <span className="font-medium text-gray-900">
+                              {section.name}
+                            </span>
                             <span className="ml-6 flex items-center">
                               <ChevronDownIcon
-                                className={classNames(open ? '-rotate-180' : 'rotate-0', 'h-5 w-5 transform')}
+                                className={classNames(
+                                  open ? "-rotate-180" : "rotate-0",
+                                  "h-5 w-5 transform"
+                                )}
                                 aria-hidden="true"
                               />
                             </span>
@@ -259,7 +309,10 @@ export default function ProductsPreview(props) {
                         <DisclosurePanel className="pt-6">
                           <div className="space-y-6">
                             {section.options.map((option, optionIdx) => (
-                              <div key={option.value} className="flex items-center">
+                              <div
+                                key={option.value}
+                                className="flex items-center"
+                              >
                                 <input
                                   id={`filter-mobile-${section.id}-${optionIdx}`}
                                   name={`${section.id}[]`}
@@ -290,15 +343,138 @@ export default function ProductsPreview(props) {
         <main>
           <div className="bg-white">
             <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-              <h1 className="pt-12 text-4xl font-bold tracking-tight text-[#c19434] text-center">Workspace sale</h1>
+              <h1 className="pt-12 text-4xl font-bold tracking-tight text-[#c19434] text-center">
+                Workspace sale
+              </h1>
               <p className="mx-auto mt-4 max-w-4xl text-base text-gray-500">
-                Our thoughtfully designed workspace objects are crafted in limited runs. Improve your productivity and
-                organization with these sale items before we run out.
+                Our thoughtfully designed workspace objects are crafted in
+                limited runs. Improve your productivity and organization with
+                these sale items before we run out.
               </p>
             </div>
           </div>
 
-          {/* Filters */}
+          {/* Product grid */}
+          <section
+            aria-labelledby="products-heading"
+            className="mx-auto max-w-2xl px-4 pb-16 pt-12 sm:px-6 sm:pb-24 sm:pt-16 lg:max-w-7xl lg:px-8"
+          >
+            <h2 id="products-heading" className="sr-only">
+              Products
+            </h2>
+
+            <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+              {products.map((product) => (
+                <a
+                  key={product.id}
+                  href={path + product.href}
+                  className="group"
+                >
+                  <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
+                    <img
+                      src={product.imageSrc}
+                      alt={product.imageAlt}
+                      className="h-full w-full object-cover object-center group-hover:opacity-75"
+                    />
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <h3 className="mt-4 text-sm text-[#c19434]">
+                        {product.name}
+                      </h3>
+                      <p className="mt-1 text-lg font-medium text-gray-900">
+                        {product.price}
+                      </p>
+                    </div>
+                    <div className="grid min-h-[140px] place-items-center overflow-x-scroll rounded-lg p-6 lg:overflow-visible">
+                      <div className="inline-flex items-center">
+                        <span>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            className="w-4 h-4 text-[#c19434] cursor-pointer"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                              clipRule="evenodd"
+                            ></path>
+                          </svg>
+                        </span>
+                        <span>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            className="w-4 h-4 text-[#c19434] cursor-pointer"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                              clipRule="evenodd"
+                            ></path>
+                          </svg>
+                        </span>
+                        <span>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            className="w-4 h-4 text-[#c19434] cursor-pointer"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                              clipRule="evenodd"
+                            ></path>
+                          </svg>
+                        </span>
+                        <span>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            className="w-4 h-4 text-[#c19434] cursor-pointer"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                              clipRule="evenodd"
+                            ></path>
+                          </svg>
+                        </span>
+                        <span>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth="1.5"
+                            stroke="currentColor"
+                            className="w-4 h-4 cursor-pointer text-blue-gray-500"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"
+                            ></path>
+                          </svg>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+  );
+}
+
+/*
+ Filters
           <section aria-labelledby="filter-heading">
             <h2 id="filter-heading" className="sr-only">
               Filters
@@ -401,7 +577,7 @@ export default function ProductsPreview(props) {
               </div>
             </div>
 
-            {/* Active filters */}
+            
             <div className="bg-gray-100">
               <div className="mx-auto max-w-7xl px-4 py-3 sm:flex sm:items-center sm:px-6 lg:px-8">
                 <h3 className="text-sm font-medium text-gray-500">
@@ -435,67 +611,4 @@ export default function ProductsPreview(props) {
               </div>
             </div>
           </section>
-
-          {/* Product grid */}
-          <section
-            aria-labelledby="products-heading"
-            className="mx-auto max-w-2xl px-4 pb-16 pt-12 sm:px-6 sm:pb-24 sm:pt-16 lg:max-w-7xl lg:px-8"
-          >
-            <h2 id="products-heading" className="sr-only">
-              Products
-            </h2>
-
-            <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-              {products.map((product) => (
-                <a key={product.id} href={path+product.href} className="group">
-                  <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
-                    <img
-                      src={product.imageSrc}
-                      alt={product.imageAlt}
-                      className="h-full w-full object-cover object-center group-hover:opacity-75"
-                    />
-                  </div>
-                  <div className="flex items-center justify-between">
-  <div>
-    <h3 className="mt-4 text-sm text-[#c19434]">{product.name}</h3>
-    <p className="mt-1 text-lg font-medium text-gray-900">{product.price}</p>
-  </div>
-  <div className="grid min-h-[140px] place-items-center overflow-x-scroll rounded-lg p-6 lg:overflow-visible">
-    <div className="inline-flex items-center">
-      <span>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 text-[#c19434] cursor-pointer">
-          <path fillRule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clipRule="evenodd"></path>
-        </svg>
-      </span>
-      <span>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 text-[#c19434] cursor-pointer">
-          <path fillRule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clipRule="evenodd"></path>
-        </svg>
-      </span>
-      <span>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 text-[#c19434] cursor-pointer">
-          <path fillRule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clipRule="evenodd"></path>
-        </svg>
-      </span>
-      <span>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 text-[#c19434] cursor-pointer">
-          <path fillRule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clipRule="evenodd"></path>
-        </svg>
-      </span>
-      <span>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-4 h-4 cursor-pointer text-blue-gray-500">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"></path>
-        </svg>
-      </span>
-    </div>
-  </div>
-</div>  
-                </a>
-              ))}
-            </div>
-          </section>
-        </main>
-      </div>
-    </div>
-  )
-}
+*/
